@@ -1,5 +1,26 @@
 
 import csv
+import html
+import re
+
+# clean tweets
+def naturalLanguage(sentence):
+    emoji_pattern = re.compile("["
+            u"\U0001F600-\U0001F64F"  # emoticons
+            u"\U0001F300-\U0001F5FF"  # symbols & pictographs
+            u"\U0001F680-\U0001F6FF"  # transport & map symbols
+            u"\U0001F1E0-\U0001F1FF"  # flags (iOS)
+                               "]+", flags=re.UNICODE)
+    ch = "\\x"  #replace \xfdsda to @
+    sentence = str(sentence.encode('utf-8'))
+    sentence = sentence.replace(ch, "@")
+    sentence = html.unescape(sentence)  # unescape HTML
+    sentence = re.sub(r"http\S+", "", sentence)  # remove normal URLS
+    sentence = re.sub(r"pic\.twitter\.com/\S+", "", sentence)  # remove pic.twitter.com URLS
+    sentence = re.sub(r"@\S+", "", sentence)  # remove User Tags
+    sentence = re.sub(emoji_pattern, '', sentence) #remove emojis
+    return sentence[4:]
+
 
 # Receive csv file contains all tweet, country name
 # return list of tweet from the specific country
@@ -9,7 +30,12 @@ def create_list_by_counry(csv_fileName, counrty_name, counrty_short):
         reader = list(csv.reader(f))
     for val in reader:
         if counrty_name in val[2].lower() or counrty_short in val[2].lower():
-            list_toRet.append(val)
+            val[1] = naturalLanguage(val[1])
+            if not val[1].isspace():
+                if val[1].startswith('. ') or val[1].startswith('\ ') or val[1] == '\\':
+                    pass
+                else:
+                    list_toRet.append(val)
     f.close()
     return list_toRet
 
