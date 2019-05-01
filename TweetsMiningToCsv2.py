@@ -58,7 +58,6 @@ class TweetToCsv():
                     traceback.print_exc()
                     continue
 
-
     def addonDays(self, a, x):
        ret = time.strftime("%Y-%m-%d",time.localtime(time.mktime(time.strptime(a,"%Y-%m-%d"))+x*3600*24+3600))
        return ret
@@ -75,13 +74,12 @@ class TweetToCsv():
             f.close()
 
     def init_twitter_api(self):
-        consumer_key = "fUQPJu7goniR2hfi5R5Klwtrn"  # new Key Data Retriveal
-        consumer_secret = "JpApHOlXEfBxqoGggPZux6kRhLSnLAHhcMRq12K6yiXsUS86qf"  # new Key Data Retriveal
-        access_token = "1003222000523993089-6QBWMQBTNtiVz7NrtcBw3PTigQlpjJ"
-        access_token_secret = "rRrKrD5W7LhmwminPcQHzGJJei5D22xnnvfEJcxONTsEn"
+        consumer_key = "8h2gg259CNETqZNR9xq3Z1u3X"  # new Key Data Retriveal
+        consumer_secret = "TVv2tjVSmJJzMRpyWkbW4k3A2lDoSTPbXioRbtmobPPKVHytyP"  # new Key Data Retriveal
+        access_token = "1003222000523993089-nN73BpEgT4T80q8argxts6trocQAva"
+        access_token_secret = "p0DlLZK9AmJjrYq4fBhJBzhMbmytvG2HvAMfUwgQFqUrV"
         auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
         auth.set_access_token(access_token, access_token_secret)
-        # api = tweepy.API(auth)
         self.api = tweepy.API(auth, wait_on_rate_limit=True, wait_on_rate_limit_notify=True, compression=True)
 
     def init_dates(self):
@@ -89,17 +87,14 @@ class TweetToCsv():
         self.folder_name = 'Tweets By Days'
         self.days_to_add = 1
         self.start_date = self.addonDays(self.today_date, -9)
-        self.until_date = self.addonDays(self.start_date, 1)
+        self.until_date = self.addonDays(self.start_date, self.days_to_add)
 
     def main(self):
         while(self.addonDays(self.start_date,-1) != self.today_date ):
-            print(self.start_date)
-            print(self.until_date)
             self.writeToCsvPerDay()
             self.start_date = self.addonDays(self.start_date, 1)
             self.until_date = self.addonDays(self.until_date, 1)
-            print(self.start_date)
-            print(self.until_date)
+
 
 if __name__ == "__main__":
     window = TweetToCsv()
