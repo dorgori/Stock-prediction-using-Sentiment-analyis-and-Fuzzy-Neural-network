@@ -8,6 +8,7 @@ import math
 class NeuralNet():
     def __init__(self,stateName):
         self.createMoodList(stateName)
+        self.calcGausianFunction()
 
 
     def createMoodList(self,stateName):
@@ -21,8 +22,10 @@ class NeuralNet():
 
     def calcGausianFunction(self, values_list):
         self.mean = np.mean(values_list)
+        self.Mik_list = []
         for xi in values_list:
-            Mik_xi = math.exp(-((xi-self.mean)**2)/self.calcVariance(xi,self.mean))
+            self.Mik_list.append(math.exp(-((xi-self.mean)**2)/self.calcVariance(xi,self.mean)))
+            print(self.Mik_list[-1])
 
     def calcVariance(self,xi, mean):
         return 0.5*((xi-mean)**2)
