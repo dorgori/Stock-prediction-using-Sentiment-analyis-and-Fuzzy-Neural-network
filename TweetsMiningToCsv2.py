@@ -33,7 +33,8 @@ class TweetToCsv():
             text_set = set()
             while (1):
                 try:
-                    for tweet in tweepy.Cursor(self.api.search, q=searchQuery,since=self.start_date,until=self.until_date).items(maxTweets):
+                    #for tweet in tweepy.Cursor(self.api.search, q=searchQuery,since=self.start_date,until=self.until_date).items():
+                    for tweet in tweepy.Cursor(self.api.search, q=searchQuery,until=self.until_date).items():
                         # Verify the tweet has place info before writing (It should, if it got past our place filter)
                         if tweet.place is not None:
                             # Encode as JSON format
@@ -87,7 +88,7 @@ class TweetToCsv():
         self.folder_name = 'Tweets By Days'
         self.days_to_add = 1
         self.start_date = self.addonDays(self.today_date, -9)
-        self.until_date = self.addonDays(self.start_date, self.days_to_add)
+        self.until_date = self.addonDays(self.start_date, 1)
 
     def main(self):
         while(self.addonDays(self.start_date,-1) != self.today_date ):

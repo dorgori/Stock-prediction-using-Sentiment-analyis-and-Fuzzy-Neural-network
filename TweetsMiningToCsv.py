@@ -27,13 +27,15 @@ class TweetToCsv():
             writer = csv.writer(csvFile)
             writer.writerow(csvData)
             searchQuery = 'place:96683cc9126741d1'  # USA Code
-            maxTweets = 1000000
+            maxTweets = 100000
             # The twitter Search API allows up to 100 tweets per query
             tweetCount = 0
+            duplicate = 0
             text_set = set()
             while (1):
                 try:
-                    for tweet in tweepy.Cursor(self.api.search, q=searchQuery,since=self.start_date,until=self.until_date).items(maxTweets):
+                    time.sleep(1)
+                    for tweet in tweepy.Cursor(self.api.search, q=searchQuery,until=self.until_date).items():
                         # Verify the tweet has place info before writing (It should, if it got past our place filter)
                         if tweet.place is not None:
                             # Encode as JSON format
@@ -53,9 +55,13 @@ class TweetToCsv():
                                 if len(text_set) == 7000:
                                     text_set.clear()
                                     return
+                            else:
+                                duplicate +=1
+
                 except:
                     print("Time out error caught." + str(tweetCount))
                     traceback.print_exc()
+                    print('Duplicate number : '+str(duplicate))
                     continue
 
 
@@ -98,8 +104,7 @@ class TweetToCsv():
             self.writeToCsvPerDay()
             self.start_date = self.addonDays(self.start_date, 1)
             self.until_date = self.addonDays(self.until_date, 1)
-            print(self.start_date)
-            print(self.until_date)
+
 
 if __name__ == "__main__":
     window = TweetToCsv()
