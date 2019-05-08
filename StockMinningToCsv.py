@@ -2,6 +2,7 @@ import csv
 import yahoofinance as yf
 import datetime
 from datetime import timedelta
+import os
 
 #profile = yf.AssetProfile('AAPL')
 #profile.to_csv('AAPL-profile.csv')
@@ -12,69 +13,93 @@ need to finish grab share data for each day.
 class StockValues:
     def __init__(self):
         self.init_symbol()
-        self.check_if_weekend()
+        #self.check_if_weekend()
+        self.minning_share()
 
     '''
     choose symbol, since date, until date
     '''
     def init_symbol(self):
-        symbol = 'AAPL'
-        since_date = '2019-01-05'
-        until_date = '2019-02-05'
-
-
-    def read_from_csv(self, date, operation):
-        with open('Stock Values/' + date + '.csv') as f:
-            stock_val = list(csv.reader(f))
-            print(stock_val)
-            f.close()
-            if operation == 'grab values':
-            # remove headlines
-                stock_val.remove(stock_val[0])
-                stock_val = stock_val.pop()
-                stock_val = stock_val[1:]
-                return stock_val
-            if operation == 'headlines':
-                return stock_val[0]
+        self.symbol = 'AAPL'
+        self.since_date = '2019-04-22'
+        self.until_date = '2019-05-08'
 
 
     def minning_share(self):
         print(self.symbol)
-        #share = yf.HistoricalPrices(symbol, since_date, until_date)
         # share.to_csv('Stock Values/'+since_date+'.csv')
-        #stockValue = share.to_dfs(list)
+        share_data = []
+        check = datetime.datetime.strptime(self.since_date, '20%y-%m-%d')
+        until = datetime.datetime.strptime(self.until_date, '20%y-%m-%d')
+        next_day = check + timedelta(days=1)
+        while check != until:
+            print(str(check.strftime('20%y-%m-%d')))
+            name_day = check.strftime("%A")
+            if name_day == 'Saturday' or name_day == 'Sunday':
+                prev_days = []
+                if len(share_data) == 0:
+                    prev_days = self.complete_missing_day(2)
+
+                elif len(share_data) == 1:
+                    prev_days = self.complete_missing_day(1)
+                    prev_days.append(share_data[len(share_data)-1])
+
+                else:
+                    prev_days.copy(share_data[len(share_data)-2:])
+
+                prev_days[0].pop(0)
+                prev_days[1].pop(0)
+                stock_val = list(map(lambda x, y: (float(x) + float(y)) / 2, prev_days[0], prev_days[1]))
+                stock_val.insert(0, check.strftime('20%y-%m-%d'))
+                print(stock_val)
+                share_data.append(stock_val)
+
+            else:
+                share = yf.HistoricalPrices(self.symbol, check.strftime('20%y-%m-%d'), next_day.strftime('20%y-%m-%d'))
+                stock_val = share.prices.split('\n')
+                stock_val = stock_val[1:-1]
+                stock_val = stock_val[0].split(',')
+                print(stock_val)
+                share_data.append(stock_val)
+               # print(share_data[len(share_data)-1])
+
+            check = check + timedelta(days=1)
+            next_day = next_day + timedelta(days=1)
 
 
-    def check_if_weekend(self):
-        stock_val_day1 = []
-        stock_val_day2 = []
-        now = datetime.datetime.now()
-        day = now.strftime("%A")
-        print(day)
-        if day == 'Friday' or day == 'Saturday':
-            yesterday = now - timedelta(days=1)
-            print(yesterday.strftime('20%y-%m-%d'))
-            stock_val_day1 = self.read_from_csv(yesterday, 'grab values')
-            yesterday = now - timedelta(days=1)
-            print(yesterday.strftime('20%y-%m-%d'))
-            stock_val_day2 = self.read_from_csv(yesterday, 'grab values')
-            headlines = self.read_from_csv(yesterday, 'headlines')
-            stock_val = list(map(lambda x, y: (float(x)+float(y))/2, stock_val_day1, stock_val_day2))
-            now.strftime('20%y-%m-%d')
-            stock_val.insert(0,now)
-            print (stock_val)
-            self.write_into_csv(day, stock_val, headlines)
-        else:
-            self.minning_share()
-            print(now.strftime('20%y-%m-%d'))
-        return 0
+        for val in share_data:
+            print(val)
+        self.write_into_csv(self.symbol, share_data)
 
 
-    def write_into_csv(self, file_date, csvData, headlines):
-        with open('Stock Values/' + file_date + '.csv', 'w', newline='') as csvFile:
+    def complete_missing_day(self, file_name, num_of_days):
+        '''
+        1. open file
+        2. read N days
+        3. close file
+        :return: list of values
+        '''
+        with open('Stock Values/' + file_name + '-prices.csv', newline='') as csvFile:
+            reader = list(csv.reader(csvFile))
+            if num_of_days == 1:
+                reader = reader[len(reader)-1]
+            elif num_of_days == 2:
+                reader = reader[len(reader)-2:]
+            csvFile.close()
+
+        return reader
+
+
+    def write_into_csv(self, file_name, csvData):
+        flag = 0
+        if not os.path.isfile(file_name) == 1:
+            flag = 1
+            headlines = ['Date', 'Open', 'High', 'Low', 'Close', 'Adj Close', 'Volume']
+        with open('Stock Values/' + file_name + '-prices.csv', 'a', newline='') as csvFile:
             writer = csv.writer(csvFile)
-            writer.writerow(headlines)
-            writer.writerow(csvData)
+            if flag:
+                writer.writerow(headlines)
+            writer.writerows(csvData)
             csvFile.close()
 
 
