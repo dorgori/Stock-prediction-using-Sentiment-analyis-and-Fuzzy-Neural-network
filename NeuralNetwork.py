@@ -8,27 +8,81 @@ import math
 class NeuralNet():
     def __init__(self,stateName):
         self.createMoodList(stateName)
-        self.calcGausianFunction()
+        self.createStockLists()
+        self.training()
+        #self.calcGausianFunction()
 
 
     def createMoodList(self,stateName):
         self.path = 'Public Mood/' + stateName + '/'
-        self.moodFile = glob.glob(self.path + "*.csv")[0]
-        df = pd.read_csv(self.moodFile)
+        moodFile = glob.glob(self.path + "*.csv")[0]
+        df = pd.read_csv(moodFile)
         self.joy_values = df['joy']
         self.surprise_value = df['surprise']
         self.mood_list = self.joy_values+self.surprise_value
-        print(self.mood_list)
+        #print(self.mood_list)
 
     def calcGausianFunction(self, values_list):
         self.mean = np.mean(values_list)
-        self.Mik_list = []
+        self.variance = self.calcVariance(values_list,self.mean)
+        Mik_list = []
         for xi in values_list:
-            self.Mik_list.append(math.exp(-((xi-self.mean)**2)/self.calcVariance(xi,self.mean)))
-            print(self.Mik_list[-1])
+            expo = ((xi-self.mean)**2)/self.variance
+            Mik_list.append(math.exp(-expo))
+            #print(Mik_list[-1])
+        return Mik_list
 
-    def calcVariance(self,xi, mean):
-        return 0.5*((xi-mean)**2)
+    def calcVariance(self,values_list, mean):
+        sum = 0
+        for val in values_list:
+            sum += ((val-mean)**2)
+        sum *= 0.5
+        return sum
+
+    def training(self):
+        self.weights = np.random.rand(3)
+        for i in range(0,round(len(self.mood_list)-2)):
+            #Layer 2
+            self.Mik_mood_list = self.calcGausianFunction(self.mood_list[i:i+3])
+            self.Mik_open_list = self.calcGausianFunction(self.open_values[i:i + 3])
+            self.Mik_close_list = self.calcGausianFunction(self.close_value[i:i + 3])
+            self.Mik_high_list = self.calcGausianFunction(self.high_value[i:i + 3])
+            self.Mik_low_list = self.calcGausianFunction(self.low_value[i:i + 3])
+
+            self.Mik_total = [self.Mik_mood_list,self.Mik_open_list,self.Mik_close_list,
+                              self.Mik_high_list, self.Mik_low_list]
+            #Layer 3
+            self.Mk_list = self.createMkList()
+
+            #Layer 4
+            Normalized_list = []
+            for val in self.Mk_list:
+                Normalized_list.append(val / np.sum(self.Mk_list))
+
+            # Layer 5
+            y_out = 0
+            for i, val in enumerate(Normalized_list):
+                y_out += val*self.weights[i]
+            print(y_out)
+
+    def createStockLists(self):
+        self.path = 'Stock Values/'
+        StockFile = glob.glob(self.path+"*.csv")[0]
+        df = pd.read_csv(StockFile)
+        self.open_values = df['Open']
+        self.close_value = df['Close']
+        self.high_value = df['High']
+        self.low_value = df['Low']
+
+    def createMkList(self):
+        Mk_list = []
+        multiply = 1
+        for i in range(len(self.Mik_mood_list)):
+            for val in self.Mik_total:
+                multiply *= val[i]
+            Mk_list.append(multiply)
+            multiply = 1
+        return  Mk_list
 
 
 if __name__ == "__main__":
