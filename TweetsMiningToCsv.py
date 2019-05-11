@@ -55,13 +55,9 @@ class TweetToCsv():
                                 if len(text_set) == 7000:
                                     text_set.clear()
                                     return
-                            else:
-                                duplicate +=1
-
                 except:
                     print("Time out error caught." + str(tweetCount))
                     traceback.print_exc()
-                    print('Duplicate number : '+str(duplicate))
                     continue
 
 

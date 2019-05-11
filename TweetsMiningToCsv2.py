@@ -34,7 +34,7 @@ class TweetToCsv():
             while (1):
                 try:
                     #for tweet in tweepy.Cursor(self.api.search, q=searchQuery,since=self.start_date,until=self.until_date).items():
-                    for tweet in tweepy.Cursor(self.api.search, q=searchQuery,until=self.until_date).items():
+                    for tweet in tweepy.Cursor(self.api.search, q=searchQuery).items():
                         # Verify the tweet has place info before writing (It should, if it got past our place filter)
                         if tweet.place is not None:
                             # Encode as JSON format
@@ -51,9 +51,9 @@ class TweetToCsv():
                                 row.append(full_country)
                                 writer.writerow(row)
                                 tweetCount += 1
-                                if len(text_set) == 7000:
-                                    text_set.clear()
-                                    return
+                                # if len(text_set) == 7000:
+                                #     text_set.clear()
+                                #     return
                 except:
                     print("Time out error caught." + str(tweetCount))
                     traceback.print_exc()
