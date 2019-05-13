@@ -15,8 +15,8 @@ class StockValues:
     '''
     def init_symbol(self):
         self.symbol = 'AAPL'
-        self.since_date = '2019-04-22'
-        self.until_date = '2019-05-08'
+        self.since_date = '2019-05-08'
+        self.until_date = '2019-05-13'
 
 
     def minning_share(self):

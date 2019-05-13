@@ -43,7 +43,7 @@ class NeuralNet():
         self.weights = np.random.rand(3)
         for i in range(0,round(len(self.mood_list)-2)):
             #Layer 2
-            self.Mik_mood_list = self.calcGausianFunction(self.mood_list[i:i+3])
+            self.Mik_mood_list = self.calcGausianFunction(self.mood_list[i:i + 3])
             self.Mik_open_list = self.calcGausianFunction(self.open_values[i:i + 3])
             self.Mik_close_list = self.calcGausianFunction(self.close_value[i:i + 3])
             self.Mik_high_list = self.calcGausianFunction(self.high_value[i:i + 3])
@@ -61,9 +61,25 @@ class NeuralNet():
 
             # Layer 5
             y_out = 0
-            for i, val in enumerate(Normalized_list):
-                y_out += val*self.weights[i]
+            for j, val in enumerate(Normalized_list):
+                y_out += val*self.weights[j]
             print(y_out)
+            """ How to calc desire output ?
+                We will use close gate of third day minus open gate of first day
+                if stock value raise by more then 1% the desired output will be 1
+                if it is less then 1 then we need to think
+            """
+            close_gate_ref = self.close_value[i+2]
+            open_gate_ref = self.open_values[i]
+            #diff_ref = close_gate_ref - open_gate_ref
+            limit_value = (open_gate_ref*101) / 100     # This is the 1% limit
+            stock_change = close_gate_ref / limit_value
+            if close_gate_ref > limit_value:            # It means the stock raised by more then 1%
+                self.desired_output = 1
+            else:
+                self.desired_output = close_gate_ref / limit_value
+                self.desired_output2 = open_gate_ref / limit_value
+            print(close_gate_ref)
 
     def createStockLists(self):
         self.path = 'Stock Values/'
