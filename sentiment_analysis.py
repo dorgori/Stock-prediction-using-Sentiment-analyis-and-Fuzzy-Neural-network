@@ -63,7 +63,7 @@ class Sentiment_Analysis():
             i+=1
             #if i==11:
              #   break
-        print(str(i)+ ' tweets calculated.')
+        #print(str(i)+ ' tweets calculated.')
         self.daily_p_mood = dailyDictionary
 
 
