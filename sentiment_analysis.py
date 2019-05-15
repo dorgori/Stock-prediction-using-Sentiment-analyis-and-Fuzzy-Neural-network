@@ -6,9 +6,10 @@ from datetime import timedelta
 
 # single example
 # print(indicoio.emotion(tweet))
+#orenys7_key = '0b80d9da8f4e847bd018ef74e597ad62'
 
 class Sentiment_Analysis():
-    indicoio.config.api_key = '0b80d9da8f4e847bd018ef74e597ad62'
+    indicoio.config.api_key = '3060c861b25a9959c500910254ea1360'
     def __init__(self):
         self.emo = ['anger', 'sadness', 'fear', 'joy', 'surprise']
         self.country = 'California'
