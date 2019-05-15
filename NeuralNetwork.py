@@ -4,7 +4,7 @@ import glob
 import pandas as pd
 import numpy as np
 import math, traceback
-import time
+import time,csv
 
 class NeuralNet():
     def __init__(self,stateName):
@@ -83,6 +83,7 @@ class NeuralNet():
                 self.learning_rate = 0.1
                 delta_w_list = [val*self.loss_function for val in Normalized_list]
 
+                self.writeWeightToFile(self.weights)
                 # Calc Back propagation
                 for j in range(3):
                     new_weight = self.weights[j] - self.learning_rate * delta_w_list[j]
@@ -108,6 +109,11 @@ class NeuralNet():
             Mk_list.append(multiply)
             multiply = 1
         return  Mk_list
+
+    def writeWeightToFile(self,weight_list):
+        with open('weight_progress.csv' ,'a',newline='') as csvFile:
+            writer = csv.writer(csvFile)
+            writer.writerow(weight_list)
 
 
 if __name__ == "__main__":
