@@ -23,7 +23,7 @@ class StockValues:
         #print(self.symbol)
         # share.to_csv('Stock Values/'+since_date+'.csv')
         share_data = []
-        check = datetime.datetime.strptime(self.since_date, '20%y-%m-%d')
+        check = datetime.date.strptime(self.since_date, '20%y-%m-%d')
         until = datetime.datetime.strptime(self.until_date, '20%y-%m-%d')
         next_day = check + timedelta(days=1)
         while check != until:
