@@ -36,13 +36,14 @@ class CsvCountries():
         with open(csv_fileName, newline='') as f:
             reader = list(csv.reader(f))
         for val in reader:
-            if counrty_name in val[2].lower() or counrty_short in val[2].lower():
-                val[1] = self.naturalLanguage(val[1])
-                if not val[1].isspace():
-                    if val[1].startswith('. ') or val[1].startswith('\ ') or val[1] == '\\':
-                        pass
-                    else:
-                        list_toRet.append(val)
+            if len(val) == 3:
+                if counrty_name in val[2].lower() or counrty_short in val[2].lower():
+                    val[1] = self.naturalLanguage(val[1])
+                    if not val[1].isspace():
+                        if val[1].startswith('. ') or val[1].startswith('\ ') or val[1] == '\\':
+                            pass
+                        else:
+                            list_toRet.append(val)
         f.close()
         return list_toRet
 
