@@ -10,7 +10,7 @@ from datetime import timedelta
 #orenys8 key = '3060c861b25a9959c500910254ea1360'
 #ghostmaster8 key = '4d70b34b8b07b35eac0c4e16123fc3f2'
 class Sentiment_Analysis():
-    indicoio.config.api_key = '4d70b34b8b07b35eac0c4e16123fc3f2'
+    indicoio.config.api_key = '74ccd986beb96c326c0b1bb925b28c47'
     def __init__(self):
         self.emo = ['anger', 'sadness', 'fear', 'joy', 'surprise']
         self.country = 'Texas'
