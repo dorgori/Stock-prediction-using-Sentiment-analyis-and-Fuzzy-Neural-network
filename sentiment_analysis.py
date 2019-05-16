@@ -13,9 +13,10 @@ class Sentiment_Analysis():
     indicoio.config.api_key = '4d70b34b8b07b35eac0c4e16123fc3f2'
     def __init__(self):
         self.emo = ['anger', 'sadness', 'fear', 'joy', 'surprise']
-        self.country = 'NewYork'
-        yesterday = str(datetime.date.today())
+        self.country = 'Texas'
+        yesterday = datetime.date.today()
         yesterday = yesterday - timedelta(days=1)
+        yesterday = str(yesterday)
         self.start_date = self.checkForFile()
         while self.start_date != yesterday:
             self.start_date = self.checkForFile()
