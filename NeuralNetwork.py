@@ -110,8 +110,8 @@ class NeuralNet():
             multiply = 1
         return  Mk_list
 
-    def writeWeightToFile(self,weight_list):
-        with open('weight_progress.csv' ,'a',newline='') as csvFile:
+    def writeWeightToFile(self, weight_list):
+        with open('weight_progress.csv', 'a', newline='') as csvFile:
             writer = csv.writer(csvFile)
             writer.writerow(weight_list)
 

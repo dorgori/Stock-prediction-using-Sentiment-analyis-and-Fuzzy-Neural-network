@@ -7,15 +7,17 @@ from datetime import timedelta
 # single example
 # print(indicoio.emotion(tweet))
 #orenys7_key = '0b80d9da8f4e847bd018ef74e597ad62'
-
+#orenys8 key = '3060c861b25a9959c500910254ea1360'
+#ghostmaster8 key = '4d70b34b8b07b35eac0c4e16123fc3f2'
 class Sentiment_Analysis():
-    indicoio.config.api_key = '3060c861b25a9959c500910254ea1360'
+    indicoio.config.api_key = '4d70b34b8b07b35eac0c4e16123fc3f2'
     def __init__(self):
         self.emo = ['anger', 'sadness', 'fear', 'joy', 'surprise']
-        self.country = 'California'
-        today = str(datetime.date.today())
+        self.country = 'NewYork'
+        yesterday = str(datetime.date.today())
+        yesterday = yesterday - timedelta(days=1)
         self.start_date = self.checkForFile()
-        while self.start_date != today:
+        while self.start_date != yesterday:
             self.start_date = self.checkForFile()
             self.classification(country=self.country, start_date=self.start_date)
             self.normalized()
