@@ -14,16 +14,19 @@ class StockValues:
     choose symbol, since date, until date
     '''
     def init_symbol(self):
-        self.symbol = 'AAPL'
-        self.since_date = '2019-05-08'
-        self.until_date = '2019-05-13'
+        #self.symbol = 'AAPL'
+        #self.symbol = 'AMZN'
+        self.symbol = 'SPOT'
+        #self.symbol = 'AAPL'
+        self.since_date = '2018-04-25'
+        self.until_date = '2018-04-30'
 
 
     def minning_share(self):
         #print(self.symbol)
         # share.to_csv('Stock Values/'+since_date+'.csv')
         share_data = []
-        check = datetime.date.strptime(self.since_date, '20%y-%m-%d')
+        check = datetime.datetime.strptime(self.since_date, '20%y-%m-%d')
         until = datetime.datetime.strptime(self.until_date, '20%y-%m-%d')
         next_day = check + timedelta(days=1)
         while check != until:

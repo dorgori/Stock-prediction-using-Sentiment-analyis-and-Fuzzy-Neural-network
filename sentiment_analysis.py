@@ -13,7 +13,7 @@ class Sentiment_Analysis():
     indicoio.config.api_key = '74998d9369067234f28e7b23848889cd'
     def __init__(self):
         self.emo = ['anger', 'sadness', 'fear', 'joy', 'surprise']
-        self.country = 'Florida'
+        self.country = 'California'
         yesterday = datetime.date.today()
         yesterday = yesterday - timedelta(days=1)
         yesterday = str(yesterday)
