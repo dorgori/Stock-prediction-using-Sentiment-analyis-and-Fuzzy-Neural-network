@@ -6,35 +6,44 @@ from datetime import timedelta
 
 # single example
 # print(indicoio.emotion(tweet))
-#orenys7_key = '0b80d9da8f4e847bd018ef74e597ad62'
-#orenys8 key = '3060c861b25a9959c500910254ea1360'
+orenys7_key = '0b80d9da8f4e847bd018ef74e597ad62'
+#orenys8_key = '3060c861b25a9959c500910254ea1360'
+another = '74998d9369067234f28e7b23848889cd'
 #ghostmaster8 key = '4d70b34b8b07b35eac0c4e16123fc3f2'
 class Sentiment_Analysis():
-    indicoio.config.api_key = '74998d9369067234f28e7b23848889cd'
+    indicoio.config.api_key = orenys7_key
     def __init__(self):
         self.emo = ['anger', 'sadness', 'fear', 'joy', 'surprise']
-        self.country = 'California'
-        yesterday = datetime.date.today()
-        yesterday = yesterday - timedelta(days=1)
+        self.country_list = ['California','Florida','NewYork','Texas']
+        #self.country = 'California'
+        today = datetime.date.today()
+        tommorow = str(today + timedelta(days=1))
+        yesterday = today - timedelta(days=1)
+        today = str(today)
         yesterday = str(yesterday)
-        self.start_date = self.checkForFile()
-        while self.start_date != yesterday:
-            self.start_date = self.checkForFile()
-            self.classification(country=self.country, start_date=self.start_date)
-            self.normalized()
-            print(self.daily_p_mood.keys())
-            print(self.daily_p_mood.values())
+        start_date = '2019-04-22'
+        for country in self.country_list:
+            self.start_date = start_date
+            print('Start sentiment analysis: '+country)
+            while self.start_date != yesterday:
+                self.start_date = self.checkForFile(country)
+                if self.start_date == tommorow:
+                    break
+                self.classification(country=country, start_date=self.start_date)
+                self.normalized()
+                print(self.daily_p_mood.keys())
+                print(self.daily_p_mood.values())
 
-            self.saveMoodIntoCSV()
+                self.saveMoodIntoCSV(country)
 
 
-    def checkForFile(self):
-        if not os.path.isfile("Public Mood/"+self.country+".csv"):
+    def checkForFile(self, country):
+        if not os.path.isfile("Public Mood/"+country+".csv"):
             date = '2019-04-22'
             return date
         else:
             try:
-                with open("Public Mood/"+self.country+".csv", newline='') as mood_file:
+                with open("Public Mood/"+country+".csv", newline='') as mood_file:
                     reader = list(csv.reader(mood_file))
                 for row in reversed(reader):
                     date = row[0]
@@ -70,11 +79,11 @@ class Sentiment_Analysis():
         self.daily_p_mood = dailyDictionary
 
 
-    def saveMoodIntoCSV(self):
+    def saveMoodIntoCSV(self, country):
         flag = 0
-        if not os.path.isfile('Public Mood/' + self.country + '.csv') == 1:
+        if not os.path.isfile('Public Mood/' + country + '.csv') == 1:
             flag = 1
-        with open('Public Mood/'+self.country+'.csv', 'a', newline='') as csvFile:
+        with open('Public Mood/'+country+'.csv', 'a', newline='') as csvFile:
             writer = csv.writer(csvFile)
             if flag == 1:
                 writer.writerow(self.daily_p_mood.keys())

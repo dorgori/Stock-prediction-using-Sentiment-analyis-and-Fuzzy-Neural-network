@@ -45,6 +45,7 @@ class NeuralNet():
     def training(self):
         try:
             self.weights = np.random.rand(3)
+            print('rand choosen:'+str(self.weights))
             for i in range(0,len(self.mood_list)-2):
                 #Layer 2
                 self.Mik_mood_list = self.calcGausianFunction(self.mood_list[i:i + 3])
