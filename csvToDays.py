@@ -9,6 +9,8 @@ daily_tweet = []
 start_date = ''
 flag = 0
 
+#no country
+
 def write_to_csv(filename, tweets):
     csv_name = 'Tweets By Days/' + filename + '.csv'
     with open(csv_name, 'a', newline='') as csvFile:
