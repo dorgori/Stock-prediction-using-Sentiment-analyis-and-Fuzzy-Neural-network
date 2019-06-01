@@ -7,11 +7,12 @@ from datetime import timedelta
 # single example
 # print(indicoio.emotion(tweet))
 orenys7_key = '0b80d9da8f4e847bd018ef74e597ad62'
-#orenys8_key = '3060c861b25a9959c500910254ea1360'
+orenys8_key = '3060c861b25a9959c500910254ea1360'
 another = '74998d9369067234f28e7b23848889cd'
-#ghostmaster8 key = '4d70b34b8b07b35eac0c4e16123fc3f2'
+ghostmaster8_key = '4d70b34b8b07b35eac0c4e16123fc3f2'
+kingdavid_key = 'a0da9e8b9fedb26fae72958acc7997ae'
 class Sentiment_Analysis():
-    indicoio.config.api_key = orenys7_key
+    indicoio.config.api_key = orenys8_key
     def __init__(self):
         self.emo = ['anger', 'sadness', 'fear', 'joy', 'surprise']
         self.country = 'USA'
@@ -20,14 +21,17 @@ class Sentiment_Analysis():
         yesterday = today - timedelta(days=1)
         today = str(today)
         yesterday = str(yesterday)
-        start_date = '2009-04-06'
+        start_date = '2009-05-09'
         self.start_date = start_date
         print('Start sentiment analysis: '+self.country)
         while self.start_date != yesterday:
-            self.start_date = self.checkForFile(self.country)
+            #self.start_date = self.checkForFile(self.country)
             if self.start_date == tommorow:
                 break
             self.classification(country=self.country, start_date=self.start_date)
+            self.start_date = datetime.datetime.strptime(self.start_date, '%Y-%m-%d')
+            self.start_date = self.start_date + timedelta(days=1)
+            self.start_date = datetime.datetime.strftime(self.start_date, '%Y-%m-%d')
             self.normalized()
             print(self.daily_p_mood.keys())
             print(self.daily_p_mood.values())
@@ -37,7 +41,7 @@ class Sentiment_Analysis():
 
     def checkForFile(self, country):
         if not os.path.isfile("Public Mood/"+country+".csv"):
-            date = '2009-04-06'
+            date = '2009-05-09'
             return date
         else:
             try:
@@ -47,9 +51,9 @@ class Sentiment_Analysis():
                     date = row[0]
                     break
                 mood_file.close()
-                date = datetime.datetime.strptime(date, '20%y-%m-%d')
+                date = datetime.datetime.strptime(date, '%d/%m/%Y')
                 date = date + timedelta(days=1)
-                date = datetime.datetime.strftime(date, '20%y-%m-%d')
+                date = datetime.datetime.strftime(date, '%d/%m/%Y')
                 return date
             except:
                 traceback.print_exc()
@@ -76,8 +80,8 @@ class Sentiment_Analysis():
             dailyDictionary['fear'] += emotions[0]['fear']
             dailyDictionary['surprise'] += emotions[0]['surprise']
             i+=1
-            #if i==11:
-             #   break
+            if i==1000:
+              break
         #print(str(i)+ ' tweets calculated.')
         self.daily_p_mood = dailyDictionary
 
