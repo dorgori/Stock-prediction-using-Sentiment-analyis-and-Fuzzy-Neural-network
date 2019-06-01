@@ -6,6 +6,11 @@ import jsonpickle
 import json
 import csv, traceback, os
 
+# consumer_key = "fUQPJu7goniR2hfi5R5Klwtrn"  # new Key Data Retriveal
+# consumer_secret = "JpApHOlXEfBxqoGggPZux6kRhLSnLAHhcMRq12K6yiXsUS86qf"  # new Key Data Retriveal
+# access_token = "1003222000523993089-6QBWMQBTNtiVz7NrtcBw3PTigQlpjJ"
+# access_token_secret = "rRrKrD5W7LhmwminPcQHzGJJei5D22xnnvfEJcxONTsEn"
+
 
 class TweetToCsv():
     def __init__(self):
