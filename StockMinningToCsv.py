@@ -7,6 +7,7 @@ import copy
 
 class StockValues:
     def __init__(self):
+        self.file_name = '-prices.csv'
         self.init_symbol()
         self.minning_share()
 
@@ -18,8 +19,8 @@ class StockValues:
         #self.symbol = 'AMZN'
         #self.symbol = 'SPOT'
         #self.symbol = 'AAPL'
-        self.since_date = '2019-05-20'
-        self.until_date = '2019-05-24'
+        self.since_date = '2019-05-29'
+        self.until_date = '2019-06-05'
 
 
     def minning_share(self):
@@ -63,17 +64,18 @@ class StockValues:
             check = check + timedelta(days=1)
             next_day = next_day + timedelta(days=1)
 
-        self.write_into_csv(self.symbol, share_data)
+        # self.write_into_csv(self.symbol, share_data)
+            self.write_into_csv([stock_val])
 
 
-    def complete_missing_day(self, file_name, num_of_days):
+    def complete_missing_day(self, num_of_days):
         '''
         1. open file
         2. read N days
         3. close file
         :return: list of values
         '''
-        with open('Stock Values/' + file_name + '-prices.csv', newline='') as csvFile:
+        with open('Stock Values/' + self.symbol + self.file_name, newline='') as csvFile:
             reader = list(csv.reader(csvFile))
             if num_of_days == 1:
                 reader = reader[len(reader)-1]
@@ -84,15 +86,15 @@ class StockValues:
         return reader
 
 
-    def write_into_csv(self, file_name, csvData):
+    def write_into_csv(self, csvData):
         flag = 0
-        if not os.path.isfile('Stock Values/' + file_name + '-prices.csv') == 1:
+        if not os.path.isfile('Stock Values/' + self.symbol +  self.file_name) == 1:
             flag = 1
             headlines = ['Date', 'Open', 'High', 'Low', 'Close', 'Adj Close', 'Volume']
-        with open('Stock Values/' + file_name + '-prices.csv', 'a', newline='') as csvFile:
+        with open('Stock Values/' + self.symbol + self.file_name, 'a+', newline='') as csvFile:
             writer = csv.writer(csvFile)
-            if flag == 1:
-                writer.writerow(headlines)
+            # if flag == 1:
+            #     writer.writerow(headlines)
             writer.writerows(csvData)
             csvFile.close()
 

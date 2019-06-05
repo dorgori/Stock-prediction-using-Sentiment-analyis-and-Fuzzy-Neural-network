@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/../ECG_Data_viewer/.idea/ECG - Data viewer.iml" filepath="$PROJECT_DIR$/../ECG_Data_viewer/.idea/ECG - Data viewer.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/Stock-prediction-using-Sentiment-analyis-and-Fuzzy-Neural-network.iml" filepath="$PROJECT_DIR$/.idea/Stock-prediction-using-Sentiment-analyis-and-Fuzzy-Neural-network.iml" />
     </modules>
   </component>

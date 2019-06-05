@@ -39,6 +39,7 @@ class CsvCountries():
         for val in reader:
             if len(val) == 2 or len(val) == 3:
                 val[1] = self.naturalLanguage(val[1])
+                val[1] = val[1].replace('\n',"")
                 if not val[1].isspace():
                     if val[1].startswith('. ') or val[1].startswith('\ ') or val[1] == '\\':
                         pass
