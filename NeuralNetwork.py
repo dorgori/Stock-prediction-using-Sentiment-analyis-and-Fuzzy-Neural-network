@@ -172,6 +172,6 @@ class NeuralNet():
 
 if __name__ == "__main__":
     try:
-        window = NeuralNet('mood')
+        window = NeuralNet('good_analysis_mood')
     except:
         print(traceback.print_exc())
