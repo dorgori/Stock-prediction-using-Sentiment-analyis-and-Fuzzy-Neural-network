@@ -29,7 +29,7 @@ class Sentiment_Analysis():
         yesterday = today - timedelta(days=1)
         today = str(today)
         yesterday = str(yesterday)
-        start_date = '2019-06-05'
+        start_date = '2019-06-06'
         self.start_date = start_date
         print('Start sentiment analysis: '+self.country)
         while self.start_date != tommorow:
@@ -46,7 +46,6 @@ class Sentiment_Analysis():
                 print(self.daily_p_mood.values())
 
             self.saveMoodIntoCSV(self.country)
-
 
     def checkForFile(self, country):
         if not os.path.isfile("Public Mood/"+country+".csv"):
