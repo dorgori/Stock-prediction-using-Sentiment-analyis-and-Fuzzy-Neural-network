@@ -20,6 +20,7 @@ regex = re.compile('[^a-zA-Z ]')
 
 class Sentiment_Analysis():
     indicoio.config.api_key = dor_key_2
+
     def __init__(self):
         self.emo = ['anger', 'sadness', 'fear', 'joy', 'surprise']
         self.country = 'USA1'
