@@ -10,9 +10,9 @@ orenys7_key = '0b80d9da8f4e847bd018ef74e597ad62'
 orenys8_key = '3060c861b25a9959c500910254ea1360'
 another = '74998d9369067234f28e7b23848889cd'
 ghostmaster8_key = '4d70b34b8b07b35eac0c4e16123fc3f2'
-kingdavid_key = 'a0da9e8b9fedb26fae72958acc7997ae'
+kingdavid_key = '4b3094e66917050033cfe351460437db'
 class Sentiment_Analysis():
-    indicoio.config.api_key = orenys8_key
+    indicoio.config.api_key = orenys7_key
     def __init__(self):
         self.emo = ['anger', 'sadness', 'fear', 'joy', 'surprise']
         self.country = 'USA'
@@ -21,7 +21,7 @@ class Sentiment_Analysis():
         yesterday = today - timedelta(days=1)
         today = str(today)
         yesterday = str(yesterday)
-        start_date = '2009-05-09'
+        start_date = '2009-05-25'
         self.start_date = start_date
         print('Start sentiment analysis: '+self.country)
         while self.start_date != yesterday:
@@ -41,7 +41,7 @@ class Sentiment_Analysis():
 
     def checkForFile(self, country):
         if not os.path.isfile("Public Mood/"+country+".csv"):
-            date = '2009-05-09'
+            date = '2009-05-25'
             return date
         else:
             try:
@@ -60,7 +60,7 @@ class Sentiment_Analysis():
 
     def classification(self, country, start_date):
         if country == 'USA':
-            with open('Tweets By Days/' + start_date + '.csv', newline='') as tweetsFile:
+            with open('Csv By Days/' + start_date + '.csv', newline='') as tweetsFile:
                 reader = list(csv.reader(tweetsFile))
             tweetsFile.close()
         else:
@@ -73,15 +73,18 @@ class Sentiment_Analysis():
         reader.pop(0)
         for row in reader:
             #if i != 10:
-            emotions = indicoio.emotion([row[1]])
-            dailyDictionary['joy'] += float(emotions[0]['joy'])
-            dailyDictionary['anger'] += emotions[0]['anger']
-            dailyDictionary['sadness'] += emotions[0]['sadness']
-            dailyDictionary['fear'] += emotions[0]['fear']
-            dailyDictionary['surprise'] += emotions[0]['surprise']
-            i+=1
-            if i==1000:
-              break
+            try:
+                emotions = indicoio.emotion([row[1]])
+                dailyDictionary['joy'] += float(emotions[0]['joy'])
+                dailyDictionary['anger'] += emotions[0]['anger']
+                dailyDictionary['sadness'] += emotions[0]['sadness']
+                dailyDictionary['fear'] += emotions[0]['fear']
+                dailyDictionary['surprise'] += emotions[0]['surprise']
+                i+=1
+                if i==1000:
+                  break
+            except:
+                continue
         #print(str(i)+ ' tweets calculated.')
         self.daily_p_mood = dailyDictionary
 

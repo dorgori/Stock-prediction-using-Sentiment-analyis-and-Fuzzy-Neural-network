@@ -27,13 +27,26 @@
     </div>
       <!-- Nav bar Right side!-->
       <div class="navbar-nav">
+        {% if user.is_authenticated %}
+          <a class="nav-item nav-link" href="{% url 'logout' %}">Logout</a>
+        {% else %}
           <a class="nav-item nav-link" href="{% url 'login' %}">Login</a>
           <a class="nav-item nav-link" href="{% url 'register' %}">Register</a>
+        {% endif %}
       </div>
   </nav>
     <main>
-    {% block content %}
-    {% endblock %}
+      <div class="col-md-8">
+        {% if messages %}
+            {% for message in messages %}
+              <div class="alert alert-{{ message.tags }}">
+                {{ message }}
+              </div>
+            {% endfor %}
+        {% endif %}
+        {% block content %}
+        {% endblock %}
+      </div>
     </main>
       <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

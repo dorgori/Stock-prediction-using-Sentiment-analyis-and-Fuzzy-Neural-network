@@ -1,21 +1,17 @@
 {% extends 'user/base.html' %}
 <!DOCTYPE html>
-{% block title %}Home{% endblock %}
-
 {% block content %}
         <h1>Stock Predicting</h1>
      <p> We predicting stock values according to public mood and share data.</p>
      <div>
-        Choose Stock:
-       <select>
-          <option value="AAPL">Apple</option>
-          <option value="SPOT">Spotify</option>
-          <option value="AMZN">Amazon</option>
-          <option value="MCSFT">Microsoft</option>
-       </select>
-        Choose date: <input type="date" name="bday">
-        <button>
-          Show
-        </button>
-      </div>
+         Choose Stock:
+         <select>
+             <option value="AAPL">Apple</option>
+             <option value="SPOT">Spotify</option>
+             <option value="AMZN">Amazon</option>
+             <option value="MCSFT">Microsoft</option>
+         </select>
+         Choose date: <input type="date" name="trade_date">
+         <button name="btn-show">Show</button>
+     </div>
 {% endblock %}

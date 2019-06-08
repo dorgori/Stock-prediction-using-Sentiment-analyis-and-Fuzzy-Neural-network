@@ -1,20 +1,13 @@
 {% extends 'user/base.html' %}
+{% load crispy_forms_tags %}
 <!DOCTYPE html>
-{% block title %}Home{% endblock %}
-
 {% block content %}
-<main role="main" class="container">
-      <div class="row">
-        <div class="col-md-8">
-        </div>
-      </div>
-    </main>
     <div class="content-section">
         <form method="POST">
             {% csrf_token %}
             <fieldset class="form-group">
                 <legend class="border-bottom mb-4">Join Today</legend>
-                {{ form }}
+                {{ form|crispy}}
             </fieldset>
             <div class="form-group">
                 <button class="btn btn-outline-info" type="submit">Sign Up</button>
