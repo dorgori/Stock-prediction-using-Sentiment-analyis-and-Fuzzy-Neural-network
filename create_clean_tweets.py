@@ -39,6 +39,7 @@ class CsvCountries():
         for val in reader:
             if len(val) == 2 or len(val) == 3:
                 val[1] = self.naturalLanguage(val[1])
+                val[1] = val[1].replace('\n',"")
                 if not val[1].isspace():
                     if val[1].startswith('. ') or val[1].startswith('\ ') or val[1] == '\\':
                         pass
@@ -67,10 +68,13 @@ class CsvCountries():
 
     def readCsvPerDay(self):
         self.createFolders()
-        for file in self.file_list:
+        self.clean_file_list = glob.glob("Csv By Days/*.csv")
+        diff_num = len(self.file_list) - len(self.clean_file_list)
+        for i in range(diff_num):
+            file = self.file_list[i + len(self.clean_file_list)]
             print(file)
             self.clean_tweets = self.create_clean_file_daily(file)
-            current_date = file[file.find('\\')+1:]
+            current_date = file[file.find('\\') + 1:]
             self.create_csv_by_day('Csv By Days/' + current_date)
 
     def createFolders(self):

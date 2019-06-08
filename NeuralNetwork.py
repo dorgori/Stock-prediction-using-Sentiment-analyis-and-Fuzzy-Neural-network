@@ -5,6 +5,8 @@ import pandas as pd
 import numpy as np
 import math, traceback
 import time,csv
+import datetime
+from datetime import timedelta
 
 class NeuralNet():
     def __init__(self,stateName):
@@ -14,13 +16,14 @@ class NeuralNet():
         self.training()
         #print(time.time()- tic)
 
-    def createMoodList(self,stateName):
-        self.path = 'Public Mood/' + stateName
+    def createMoodList(self,mood_file):
+        self.path = 'Public Mood/' + mood_file
         moodFile = glob.glob(self.path + "*.csv")[0]
         df = pd.read_csv(moodFile)
         self.joy_values = df['joy']
         self.surprise_value = df['surprise']
         self.mood_list = self.joy_values+self.surprise_value
+        self.date_list = df['Date']
 
     def calcGausianFunction(self, values_list):
         self.mean = np.mean(values_list)
@@ -48,6 +51,8 @@ class NeuralNet():
             print('rand choosen:'+str(self.weights))
             for i in range(0,len(self.mood_list)-2):
                 #Layer 2
+                if self.validDateContiously(i) == -1:  # Date jump
+                    continue
                 self.Mik_mood_list = self.calcGausianFunction(self.mood_list[i:i + 3])
                 self.Mik_open_list = self.calcGausianFunction(self.open_values[i:i + 3])
                 self.Mik_close_list = self.calcGausianFunction(self.close_value[i:i + 3])
@@ -157,8 +162,16 @@ class NeuralNet():
             self.desired_output = 0
         return self.desired_output
 
+    def validDateContiously(self,start_index):
+        first_day = datetime.datetime.strptime(self.date_list[start_index], '%m/%d/%Y')
+        second_day = datetime.datetime.strptime(self.date_list[start_index + 1], '%m/%d/%Y')
+        third_day = datetime.datetime.strptime(self.date_list[start_index + 2], '%m/%d/%Y')
+        if first_day != second_day - timedelta(days=1) or first_day != third_day - timedelta(days=2):
+            return -1
+        return 0
+
 if __name__ == "__main__":
     try:
-        window = NeuralNet('California')
+        window = NeuralNet('good_analysis_mood')
     except:
         print(traceback.print_exc())

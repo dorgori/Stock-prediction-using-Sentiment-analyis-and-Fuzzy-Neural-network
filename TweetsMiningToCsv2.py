@@ -6,6 +6,11 @@ import jsonpickle
 import json
 import csv, traceback, os
 
+# consumer_key = "fUQPJu7goniR2hfi5R5Klwtrn"  # new Key Data Retriveal
+# consumer_secret = "JpApHOlXEfBxqoGggPZux6kRhLSnLAHhcMRq12K6yiXsUS86qf"  # new Key Data Retriveal
+# access_token = "1003222000523993089-6QBWMQBTNtiVz7NrtcBw3PTigQlpjJ"
+# access_token_secret = "rRrKrD5W7LhmwminPcQHzGJJei5D22xnnvfEJcxONTsEn"
+
 
 class TweetToCsv():
     def __init__(self):
@@ -34,7 +39,7 @@ class TweetToCsv():
             while (1):
                 try:
                     #for tweet in tweepy.Cursor(self.api.search, q=searchQuery,since=self.start_date,until=self.until_date).items():
-                    for tweet in tweepy.Cursor(self.api.search, q=searchQuery).items():
+                    for tweet in tweepy.Cursor(self.api.search, q=searchQuery,since = self.start_date, until=self.until_date).items():
                         # Verify the tweet has place info before writing (It should, if it got past our place filter)
                         if tweet.place is not None:
                             # Encode as JSON format
