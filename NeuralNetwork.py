@@ -54,6 +54,7 @@ class NeuralNet():
                 if self.validDateContiously(i) == -1:  # Date jump
                     print('Date jump ' + str(self.date_list[i]))
                     continue
+                # print(str(self.date_list[i]))
                 self.Mik_mood_list = self.calcGausianFunction(self.mood_list[i:i + 3])
                 self.Mik_open_list = self.calcGausianFunction(self.open_values[i:i + 3])
                 self.Mik_close_list = self.calcGausianFunction(self.close_value[i:i + 3])
