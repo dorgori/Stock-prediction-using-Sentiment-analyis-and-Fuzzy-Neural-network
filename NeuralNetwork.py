@@ -52,6 +52,7 @@ class NeuralNet():
             for i in range(0,len(self.mood_list)-2):
                 #Layer 2
                 if self.validDateContiously(i) == -1:  # Date jump
+                    print('Date jump ' + str(self.date_list[i]))
                     continue
                 self.Mik_mood_list = self.calcGausianFunction(self.mood_list[i:i + 3])
                 self.Mik_open_list = self.calcGausianFunction(self.open_values[i:i + 3])
@@ -112,7 +113,7 @@ class NeuralNet():
 
     def writeWeightToFile(self, weight_list, loss):
 
-        with open('weight_progress.csv', 'a', newline='') as csvFile:
+        with open('weight_progress.csv', 'a+', newline='') as csvFile:
             writer = csv.writer(csvFile)
             writer.writerow(weight_list)
             #writer.writerow(['loss ',loss])
@@ -138,6 +139,9 @@ class NeuralNet():
         lower_limit_value = (open_value * 99) / 100     # This value present decline of 1% in 3 days
         if close_value > upper_limit_value:
             self.desired_output = 1
+        #else:
+         #   self.desired_output = 0
+        #return
         elif close_value > buy_high_limit:
             self.desired_output = 0.9
         elif close_value > buy_meidum_limit:
@@ -163,12 +167,15 @@ class NeuralNet():
         return self.desired_output
 
     def validDateContiously(self,start_index):
-        first_day = datetime.datetime.strptime(self.date_list[start_index], '%m/%d/%Y')
-        second_day = datetime.datetime.strptime(self.date_list[start_index + 1], '%m/%d/%Y')
-        third_day = datetime.datetime.strptime(self.date_list[start_index + 2], '%m/%d/%Y')
-        if first_day != second_day - timedelta(days=1) or first_day != third_day - timedelta(days=2):
-            return -1
-        return 0
+        try:
+            first_day = datetime.datetime.strptime(self.date_list[start_index], '%m/%d/%Y')
+            second_day = datetime.datetime.strptime(self.date_list[start_index + 1], '%m/%d/%Y')
+            third_day = datetime.datetime.strptime(self.date_list[start_index + 2], '%m/%d/%Y')
+            if first_day != second_day - timedelta(days=1) or first_day != third_day - timedelta(days=2):
+                return -1
+            return 0
+        except:
+            traceback.print_exc()
 
 if __name__ == "__main__":
     try:

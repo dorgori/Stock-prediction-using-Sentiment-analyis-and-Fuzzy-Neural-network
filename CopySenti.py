@@ -29,7 +29,7 @@ class Sentiment_Analysis():
         yesterday = today - timedelta(days=1)
         today = str(today)
         yesterday = str(yesterday)
-        start_date = '2019-06-06'
+        start_date = '2019-06-08'
         self.start_date = start_date
         print('Start sentiment analysis: '+self.country)
         while self.start_date != tommorow:
