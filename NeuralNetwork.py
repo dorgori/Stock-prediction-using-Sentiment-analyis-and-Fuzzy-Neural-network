@@ -32,7 +32,6 @@ class NeuralNet():
         for xi in values_list:
             expo = ((xi-self.mean)**2)/self.variance
             Mik_list.append(math.exp(-expo))
-            #print(Mik_list[-1])
         return Mik_list
 
     def calcVariance(self,values_list, mean):
@@ -41,8 +40,6 @@ class NeuralNet():
             sum += ((val-mean)**2)
         #sum *= 0.5
         sum = np.var(values_list)
-        #print(sum)
-        #print(sum2)
         return sum
 
     def training(self):
@@ -84,7 +81,7 @@ class NeuralNet():
                 delta_w_list = [val*self.loss_function for val in Normalized_list]
 
                 #print(str(i) + ' ' + str(open_gate_ref))
-                self.writeWeightToFile(self.weights, self.loss_function)
+                self.writeWeightToFile(self.weights, self.loss_function, i)
 
                 # Calc Back propagation
                 for j in range(3):
@@ -112,12 +109,15 @@ class NeuralNet():
             multiply = 1
         return  Mk_list
 
-    def writeWeightToFile(self, weight_list, loss):
-
-        with open('weight_progress.csv', 'a+', newline='') as csvFile:
+    def writeWeightToFile(self, weight_list, loss, index):
+        curr_time = time.strftime("%H_%M_%S")
+        to_write = list(weight_list)
+        to_write.append(loss)
+        with open('weights_' + curr_time + '.csv', 'a+', newline='') as csvFile:
             writer = csv.writer(csvFile)
-            writer.writerow(weight_list)
-            #writer.writerow(['loss ',loss])
+            if index == 0 : ## this weights is the random chosen weights
+                writer.writerow(['W1', 'W2', 'W3','Loss'])
+            writer.writerow(to_write)
             print('loss '+str(loss))
 
     """ How to calc desire output ?
