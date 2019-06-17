@@ -1,0 +1,117 @@
+{% extends 'user/base.html' %}
+<!DOCTYPE html>
+{% block content %}
+<form method="POST">
+    {% csrf_token %}
+    <h1>Stock Predicting</h1>
+    <p> We predicting stock values according to public mood and share data.</p>
+    <div>
+        <h6>Choose Stock:</h6>
+        <select id="symbol_selector">
+                 <option value="AAPL">Apple</option>
+                 <option value="SPOT">Spotify</option>
+                 <option value="AMZN">Amazon</option>
+                 <option value="MCSFT">Microsoft</option>
+             </select>
+        <h6>Choose date:</h6>
+        <input type="date" id="trade_date" value="16/06/2019"/>
+        <button id="btn-show" onclick="showChart()">Show</button>
+    </div>
+</form>
+
+<div style="
+	padding: 30px;
+     margin: 0 auto;
+     width: 400px;">
+    <canvas id="line-chart" height="200" width="200"></canvas>
+</div>
+
+
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.3/Chart.min.js"></script>
+
+<script>
+    getDates = function(){
+                console.log(document.getElementById("trade_date").value);
+                return document.getElementById("trade_date").value;
+            }
+</script>
+<script>
+    getSymbol = function(){
+                console.log(document.getElementById("symbol_selector").value);
+                return document.getElementById("symbol_selector").value;
+            }
+</script>
+<script>
+    getData = function(symbol){
+
+            btn = document.getElementById('btn-show');
+            btn.addEventListener("click", function() {
+                var request = new XMLHttpRequest();
+                request.open('GET', 'https://github.com/dorgori/Stock-prediction-using-Sentiment-analyis-and-Fuzzy-Neural-network/blob/master/Stock%20Values/AAPL-prices.csv');
+
+                request.onload = function() {
+                    if(request.status >= 200 && request < 400) {
+                        var data = JSON.parse(request.responseText);
+
+                        renderHTML(data);
+                        request.send();
+                    }
+                    else {
+                        console.log("We connected to the server, but it returned an error");
+                    }
+                }
+            });
+     function renderHTML(data){
+        console.log(data[0]);
+     }
+    }
+</script>
+<script>
+    showChart = function(){
+    picked_day = getDates();
+    picked_symbol = getSymbol();
+    console.log(picked_symbol);
+    picked_date = new Date(picked_day)
+    let prev1 = new Date(picked_date.getFullYear(), picked_date.getMonth(), picked_date.getDate()-1);
+    let prev2 = new Date(picked_date.getFullYear(), picked_date.getMonth(), picked_date.getDate()-2);
+    let prev3 = new Date(picked_date.getFullYear(), picked_date.getMonth(), picked_date.getDate()-3);
+    let prev4 = new Date(picked_date.getFullYear(), picked_date.getMonth(), picked_date.getDate()-4);
+    console.log(picked_date = picked_date.toDateString());
+    console.log(prev1 = prev1.toDateString());
+    console.log(prev2 = prev2.toDateString());
+    console.log(prev3 = prev3.toDateString());
+    console.log(prev4 = prev4.toDateString());
+    var ctx = document.getElementById("line-chart");
+    var lineChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: [prev4, prev3, prev2, prev1, picked_date],
+            datasets: [{
+                label: picked_symbol,
+                data: [10, 12, 11, 9, 10],
+                fill: false,
+                lineTension: 0.1,
+                backgroundColor: 'rgba(75, 192, 192, 0.4)',
+                borderColor: 'rgba(75, 192, 192, 1)',
+                borderCapStyle: 'butt',
+                borderDash: [],
+                borderDashOffset: 0.0,
+                borderJoinStyle: 'miter',
+                pointBorderColor: 'rgba(75, 192, 192, 1)',
+                pointBackgroundColor: '#fff',
+                borderWidth: 1,
+                pointHoverRadius: 5,
+                pointHoverBackgroundColor: 'rgba(75,192,192,1)',
+                pointHoverBorderColor: 'rgba(220,220,220,1)',
+                pointBorderWidth: 2,
+                pointRadius: 1,
+                pointHitRadius: 10,
+            }]
+        }
+    });
+    }
+</script>
+{% endblock %}
