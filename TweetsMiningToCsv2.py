@@ -56,6 +56,8 @@ class TweetToCsv():
                                 row.append(full_country)
                                 writer.writerow(row)
                                 tweetCount += 1
+                                if len(text_set) >= 800:
+                                    return
                                 # if len(text_set) == 7000:
                                 #     text_set.clear()
                                 #     return

@@ -3,7 +3,7 @@ import csv, os
 import traceback
 import datetime
 from datetime import timedelta
-import re, time
+import re
 
 # single example
 # print(indicoio.emotion(tweet))
@@ -29,7 +29,7 @@ class Sentiment_Analysis():
         yesterday = today - timedelta(days=1)
         today = str(today)
         yesterday = str(yesterday)
-        start_date = '2019-06-10'
+        start_date = '2019-06-14'
         self.start_date = start_date
         print('Start sentiment analysis: '+self.country)
         while self.start_date != tommorow:
@@ -77,7 +77,7 @@ class Sentiment_Analysis():
         dailyDictionary = {'Date': '0', 'anger': 0, 'sadness': 0, 'fear': 0, 'joy': 0, 'surprise': 0}
         i=0
         # dailyDictionary['Date'] = self.start_date
-        dailyDictionary['Date'] = time.strptime(self.start_date, '%Y-%m-%d').strftime('%m/%d/%y')
+        dailyDictionary['Date'] = datetime.datetime.strptime(self.start_date, '%Y-%m-%d').strftime('%m/%d/%y')
         reader.pop(0)
         marker = 0
         for row in reader:
