@@ -1,5 +1,6 @@
 import tensorflow as tf
 import numpy as np
+
 from tensorflow.examples.tutorials.mnist import input_data
 from keras.models import Model, clone_model
 from keras.layers import Input, Dense
@@ -23,6 +24,18 @@ print(mean)
 #print(gauasian)
 # calculate Mik
 # normalize Mik
+list = []
+list.append(open_list[0])
+list.append(close_list[0])
+list.append(high_list[0])
+list.append(low_list[0])
+list.append(mood_list[0])
+
+num_classes = 5
+net = tf.reshape(net, list)
+net = tf.layers.dense(inputs=list, name ='layer1',
+                      units=5, activation=None)
+
 
 print('open: ')
 print(open_list)

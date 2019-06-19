@@ -58,9 +58,9 @@ class NeuralNet():
     def training(self, end_index):
         try:
             self.weights = np.random.rand(3)
-            #self.weights = [0.2,0.3,0.5]
+            #self.weights = [0.03,0.03,0.05]
             print(self.weights)
-            for i in range(0, end_index - 2):
+            for i in range(0, 98):
                 #Layer 2
                 if self.validDateContiously(i) == -1:  # Date jump
                     #print('Date jump ' + str(self.date_list[i]))
@@ -93,8 +93,14 @@ class NeuralNet():
                 # Loss function
                 # print(self.y_out_total)
                 self.y_out_total = float(self.y_out_total)
+
+                print(i)
+                print('Y-out')
+                print(self.y_out_total)
+                print('Y-desire')
+                print(self.desired_output)
                 self.loss_function  = math.pow(self.y_out_total - self.desired_output, 2)
-                self.learning_rate = 0.2
+                self.learning_rate = 0.05
                 delta_w_list = [val*self.loss_function for val in Normalized_list]
 
                 #print(str(i) + ' ' + str(open_gate_ref))
@@ -106,6 +112,9 @@ class NeuralNet():
                     self.weights[j] = new_weight
             # print(self.weights)
             print(self.date_list[i])
+            print('weights')
+            print(self.weights)
+
         except:
             print(traceback.print_exc())
 
@@ -200,10 +209,13 @@ class NeuralNet():
 
     def testing(self, start_index):
         #self.weights = np.random.rand(3)
+        #print('weights')
+        #print(self.weights)
         #print(self.date_list[start_index])
         self.accurate_list = []
         try:
-            for i in range(start_index, len(self.mood_list) - 2):
+            for i in range(98, len(self.mood_list) - 2):
+                print(i)
                 #Layer 2
                 if self.validDateContiously(i) == -1:  # Date jump
                     print('Date jump ' + str(self.date_list[i]))
