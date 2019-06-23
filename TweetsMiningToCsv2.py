@@ -19,8 +19,6 @@ class TweetToCsv():
         self.main()
 
     def writeToCsvPerDay(self):
-        # start_date = self.addonDays(self.today_date, -9)
-        # until_date = self.addonDays(self.start_date, self.days_to_add)
         csvData = ['Date', 'Tweet', 'Country']
         self.csv_name = 'Tweets By Days/'+str(self.start_date)+'.csv'
         print ('Writing file '+self.csv_name)
@@ -32,14 +30,11 @@ class TweetToCsv():
             writer = csv.writer(csvFile)
             writer.writerow(csvData)
             searchQuery = 'place:96683cc9126741d1'  # USA Code
-            maxTweets = 1000000
             # The twitter Search API allows up to 100 tweets per query
-            tweetCount = 0
             text_set = set()
             while (1):
                 try:
-                    #for tweet in tweepy.Cursor(self.api.search, q=searchQuery,since=self.start_date,until=self.until_date).items():
-                    for tweet in tweepy.Cursor(self.api.search, q=searchQuery,since = '2019-06-18', until=self.until_date).items():
+                    for tweet in tweepy.Cursor(self.api.search, q=searchQuery,since = '2019-06-21', until=self.until_date).items():
                         # Verify the tweet has place info before writing (It should, if it got past our place filter)
                         if tweet.place is not None:
                             # Encode as JSON format
@@ -55,14 +50,10 @@ class TweetToCsv():
                                 row.append(str(tweet_text))
                                 row.append(full_country)
                                 writer.writerow(row)
-                                tweetCount += 1
                                 if len(text_set) >= 800:
                                     return
-                                # if len(text_set) == 7000:
-                                #     text_set.clear()
-                                #     return
                 except:
-                    print("Time out error caught." + str(tweetCount))
+                    print("Time out error caught.")
                     traceback.print_exc()
                     continue
 

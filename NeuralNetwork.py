@@ -7,29 +7,30 @@ import math, traceback
 import time,csv
 import datetime, math
 from datetime import timedelta
+import config_params as cp
 
-Training = 0
-Testing = 1
 training_start_index = 0
 Num_Weights = 3
+mood_file_path = 'good_analysis_mood'
 
 class NeuralNet():
-    def __init__(self,stateName):
+    def __init__(self, mode):
         #tic = time.time()
-        self.createMoodList(stateName)
+        self.createMoodList()
         self.createStockLists()
-        self.training(len(self.mood_list) - 20)
-        self.testing(len(self.mood_list) - 20)
-        acuracy = np.sum(self.accurate_list) / len(self.accurate_list)
-        with open('test_accu.csv', 'a+', newline='') as csvFile:
-            writer = csv.writer(csvFile)
-            writer.writerow(self.accurate_list)
+        if mode != cp.PREDICT:
+            self.training(len(self.mood_list) - 20)
+            self.testing(len(self.mood_list) - 20)
+            acuracy = np.sum(self.accurate_list) / len(self.accurate_list)
+            with open('test_accu.csv', 'a+', newline='') as csvFile:
+                writer = csv.writer(csvFile)
+                writer.writerow(self.accurate_list)
 
         print(acuracy)
         #print(time.time()- tic)
 
-    def createMoodList(self,mood_file):
-        self.path = 'Public Mood/' + mood_file
+    def createMoodList(self):
+        self.path = 'Public Mood/' + mood_file_path
         moodFile = glob.glob(self.path + "*.csv")[0]
         df = pd.read_csv(moodFile)
         self.joy_values = df['joy']
@@ -269,6 +270,6 @@ class NeuralNet():
 
 if __name__ == "__main__":
     try:
-        window = NeuralNet('good_analysis_mood')
+        window = NeuralNet(cp.Training)
     except:
         print(traceback.print_exc())

@@ -6,7 +6,6 @@ from datetime import timedelta
 import re
 
 # single example
-# print(indicoio.emotion(tweet))
 orenys7_key = '0b80d9da8f4e847bd018ef74e597ad62'
 orenys8_key = '3060c861b25a9959c500910254ea1360'
 another = '74998d9369067234f28e7b23848889cd'
@@ -29,7 +28,7 @@ class Sentiment_Analysis():
         yesterday = today - timedelta(days=1)
         today = str(today)
         yesterday = str(yesterday)
-        start_date = '2019-06-18'
+        start_date = '2019-06-20'
         self.start_date = start_date
         print('Start sentiment analysis: '+self.country)
         while self.start_date != tommorow:
