@@ -1,6 +1,5 @@
 {% extends 'user/base.html' %} {% load staticfiles %}
 <!DOCTYPE html> {% block content %}
-<link rel="stylesheet" type="text/css" href="../styles/ex1.css">
 <h1>Predictor Menu</h1>
 <form method="post" action="{% url 'user-user' %}">
     {% csrf_token %}
