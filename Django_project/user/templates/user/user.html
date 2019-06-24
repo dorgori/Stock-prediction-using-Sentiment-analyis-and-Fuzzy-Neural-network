@@ -1,82 +1,93 @@
 {% extends 'user/base.html' %} {% load staticfiles %}
 <!DOCTYPE html> {% block content %}
-<h1>Predictor Menu</h1>
-<form method="post" action="{% url 'user-user' %}">
+<div class="container text-center">
+    <h1>Predictor Menu</h1>
+    <br>
+</div>
+<form method="post" action="{% url 'user-user' %}" style="width: 900px">
     {% csrf_token %}
-    <select class="browser-default custom-select" name="stockName" id="stockID">
-        {% for stocks_name in stocks_names %}
-                <option >{{stocks_name}}</option>
-        {% endfor %}
-    </select>
+    <div style="display: flex;
+                justify-content:start">
+        <h6 style="margin-left: 20rem;">Choose stock:</h6>
+        <select class="browser-default custom-select" name="stockName" id="stockID" style="width: 20rem; margin-left: 4rem;">
+                {% for stocks_name in stocks_names %}
+                        <option >{{stocks_name}}</option>
+                {% endfor %}
+            </select>
+    </div>
+    <div style="display: flex;
+                justify-content:start">
+        <h6 style="margin-left: 20rem;">Date:</h6>
+        <input class="form-control" id="datepicker" name="dateTo" width="20rem" value="{{ max_date }}" style="margin-left: 8rem; width: 20rem; " readonly/>
+    </div>
+    <br>
     <!--<input type="date" name="dateFrom" min="{{ max_date }}" max="">-->
-    <input type="date" name="dateTo" value="{{ max_date }}" min="{{ max_date }}" max="{{ max_date }}">
-    <input type="submit" name="trade_pred" value="Show">
-</form>
+    <button type="submit" class="btn btn-secondary" style="margin-left: 37rem;">Show Graph</button>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.3/Chart.min.js"></script>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.3/Chart.min.js"></script>
-
-<div style="
+    <div style="
 	padding: 30px;
      margin: 0 auto;
-     width: 400px;">
-    <canvas id="line-chart" height="200" width="200"></canvas>
-</div>
+     width: 400px;
+     margin-left: 27rem;">
+        <canvas id="line-chart" height="200" width="200"></canvas>
+    </div>
 
-{% if plot_exist %}
-<script>
-    var day1 = ('{{ day1 }}');
-    var day2 = ('{{ day2 }}');
-    var day3 = ('{{ day3 }}');
-    var day4 = ('{{ day4 }}');
-    var day5 = ('{{ day5 }}');
-    var stockVal1 = ('{{ stockVal1 }}');
-    var stockVal2 = ('{{ stockVal2 }}');
-    var stockVal3 = ('{{ stockVal3 }}');
-    var stockVal4 = ('{{ stockVal4 }}');
-    var stockVal5 = ('{{ stockVal5 }}');
-    var symbol = ('{{ stock_name }}');
-    var i;
-    var stockValues = [stockVal1, stockVal2, stockVal3, stockVal4, stockVal5];
+    {% if plot_exist %}
+    <script>
+        var day1 = ('{{ day1 }}');
+        var day2 = ('{{ day2 }}');
+        var day3 = ('{{ day3 }}');
+        var day4 = ('{{ day4 }}');
+        var day5 = ('{{ day5 }}');
+        var stockVal1 = ('{{ stockVal1 }}');
+        var stockVal2 = ('{{ stockVal2 }}');
+        var stockVal3 = ('{{ stockVal3 }}');
+        var stockVal4 = ('{{ stockVal4 }}');
+        var stockVal5 = ('{{ stockVal5 }}');
+        var symbol = ('{{ stock_name }}');
+        var i;
+        var stockValues = [stockVal1, stockVal2, stockVal3, stockVal4, stockVal5];
 
-    console.log(day1 + ' ' + day2 + ' ' + day3 + ' ' + day4 + ' ' + day5 + ' ');
-    console.log(stockValues);
+        console.log(day1 + ' ' + day2 + ' ' + day3 + ' ' + day4 + ' ' + day5 + ' ');
+        console.log(stockValues);
 
-    var ctx = document.getElementById("line-chart");
-    var lineChart = new Chart(ctx, {
-        type: 'line',
-        data: {
-            labels: [day5, day4, day3, day2, day1],
-            datasets: [{
-                label: symbol,
-                data: stockValues,
-                fill: false,
-                lineTension: 0.1,
-                backgroundColor: 'rgba(75, 192, 192, 0.4)',
-                borderColor: 'rgba(75, 192, 192, 1)',
-                borderCapStyle: 'butt',
-                borderDash: [],
-                borderDashOffset: 0.0,
-                borderJoinStyle: 'miter',
-                pointBorderColor: 'rgba(75, 192, 192, 1)',
-                pointBackgroundColor: '#fff',
-                borderWidth: 1,
-                pointHoverRadius: 5,
-                pointHoverBackgroundColor: 'rgba(75,192,192,1)',
-                pointHoverBorderColor: 'rgba(220,220,220,1)',
-                pointBorderWidth: 2,
-                pointRadius: 1,
-                pointHitRadius: 10,
-            }]
-        },
-        options: {
-            scales: {
-                yAxes: [{
-                    ticks: {
-                        beginAtZero: false
-                    }
+        var ctx = document.getElementById("line-chart");
+        var lineChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: [day5, day4, day3, day2, day1],
+                datasets: [{
+                    label: symbol,
+                    data: stockValues,
+                    fill: true,
+                    lineTension: 0.1,
+                    backgroundColor: 'rgba(75, 192, 192, 0.4)',
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    borderCapStyle: 'butt',
+                    borderDash: [],
+                    borderDashOffset: 0.0,
+                    borderJoinStyle: 'miter',
+                    pointBorderColor: 'rgba(75, 192, 192, 1)',
+                    pointBackgroundColor: '#fff',
+                    borderWidth: 1,
+                    pointHoverRadius: 5,
+                    pointHoverBackgroundColor: 'rgba(75,192,192,1)',
+                    pointHoverBorderColor: 'rgba(220,220,220,1)',
+                    pointBorderWidth: 2,
+                    pointRadius: 1,
+                    pointHitRadius: 10,
                 }]
-            }
-        },
-    });
-</script>
-{% endif %} {% endblock %}
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: false
+                        }
+                    }]
+                }
+            },
+        });
+    </script>
+    {% endif %} {% endblock %}

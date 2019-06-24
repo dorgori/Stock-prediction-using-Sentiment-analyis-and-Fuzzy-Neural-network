@@ -25,7 +25,7 @@ def user(request):
     now = datetime.today()
     today = str(now)[:10]
     max_date = today
-    image_exist = False
+    plot_exist = False
     stocks_names = ['AAPL', 'SPOT', 'MCRSFT']
     if request.method == 'POST':
         data = request.POST
@@ -66,7 +66,8 @@ def user(request):
                                                   'stock_name': stock_name})
     else:
         return render(request, 'user/user.html', {'max_date': max_date,
-                                                              'stocks_names': stocks_names})
+                                                  'plot_exist': plot_exist,
+                                                  'stocks_names': stocks_names})
 
 
 def get_values(data, option):

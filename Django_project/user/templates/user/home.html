@@ -1,7 +1,80 @@
 {% extends 'user/base.html' %}
 <!DOCTYPE html> {% block content %}
-<h1>Stock Predicting</h1>
-<p>
-    Welcome to Stock-Predicting by using sentiment analysis! Are you ready to earn money? Start using our application.
-</p>
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+        <h1 class="display-4">Stock Predicting</h1>
+        <p class="lead">Welcome to Stock-Predicting by using sentiment analysis! Are you ready to earn money? Start using our application.</p>
+    </div>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+</div>
+<section style="display:flex;
+                flex-direction: row;
+                justify-content: space-evenly;">
+    <div class="card" style="width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title">Our Model</h5>
+            <p class="card-text">Our model predict stock behavior and gives recommendation about Buy \ Sell shares.</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+    </div>
+    <div class="card" style="width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title">Features</h5>
+            <ul>
+                <li class="card-text">
+                    Using Sentiment-Analysis on tweets.
+                </li>
+                <li class="card-text">
+                    Minning stock values from Yahoo Finance.
+                </li>
+                <li class="card-text">
+                    Using Neural Network to predict stock behavior and gives recommendation.
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="card" style="width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        </div>
+    </div>
+</section>
+<section style="margin-top: 2rem;
+                display:flex;
+                flex-direction: row;
+                justify-content: space-evenly;">
+    <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="..." alt="Card image cap">
+        <div class="card-body">
+            <h5 class="card-title">Microsoft Model</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <div class="progress">
+                <div class="progress-bar" role="progressbar" style="width: 63.5%;" aria-valuenow="63.5" aria-valuemin="0" aria-valuemax="100">63.5%</div>
+            </div>
+        </div>
+    </div>
+    <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="..." alt="Card image cap">
+        <div class="card-body">
+            <h5 class="card-title">Amazon Model</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <div class="progress">
+                <div class="progress-bar" role="progressbar" style="width: 61%;" aria-valuenow="61" aria-valuemin="0" aria-valuemax="100">61%</div>
+            </div>
+        </div>
+    </div>
+    <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="..." alt="Card image cap">
+        <div class="card-body">
+            <h5 class="card-title">Apple Model</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <div class="progress">
+                <div class="progress-bar" role="progressbar" style="width: 62%;" aria-valuenow="62" aria-valuemin="0" aria-valuemax="100">62%</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
 {% endblock %}
