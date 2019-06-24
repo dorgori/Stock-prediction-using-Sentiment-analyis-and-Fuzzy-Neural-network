@@ -34,7 +34,7 @@ class TweetToCsv():
             text_set = set()
             while (1):
                 try:
-                    for tweet in tweepy.Cursor(self.api.search, q=searchQuery,since = '2019-06-21', until=self.until_date).items():
+                    for tweet in tweepy.Cursor(self.api.search, q=searchQuery,since = self.start_date, until=self.until_date).items():
                         # Verify the tweet has place info before writing (It should, if it got past our place filter)
                         if tweet.place is not None:
                             # Encode as JSON format

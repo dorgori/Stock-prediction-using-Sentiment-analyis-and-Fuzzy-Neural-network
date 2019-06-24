@@ -18,20 +18,16 @@ class StockValues:
         self.symbol = 'AAPL'
         #self.symbol = 'AMZN'
         #self.symbol = 'SPOT'
-        #self.symbol = 'AAPL'
-        self.since_date = '2019-06-19'
-        self.until_date = '2019-06-23'
+        self.since_date = '2019-06-23'
+        self.until_date = '2019-06-24'
 
 
     def minning_share(self):
-        #print(self.symbol)
-        # share.to_csv('Stock Values/'+since_date+'.csv')
         share_data = []
         check = datetime.datetime.strptime(self.since_date, '20%y-%m-%d')
         until = datetime.datetime.strptime(self.until_date, '20%y-%m-%d')
         next_day = check + timedelta(days=1)
         while check != until:
-            #print(str(check.strftime('20%y-%m-%d')))
             name_day = check.strftime("%A")
             if name_day == 'Saturday' or name_day == 'Sunday':
                 prev_days = []
@@ -49,7 +45,6 @@ class StockValues:
                 prev_days[1].pop(0)
                 stock_val = list(map(lambda x, y: (float(x) + float(y)) / 2, prev_days[0], prev_days[1]))
                 stock_val.insert(0, check.strftime('20%y-%m-%d'))
-                #print(stock_val)
                 share_data.append(stock_val)
 
             else:
@@ -57,9 +52,7 @@ class StockValues:
                 stock_val = share.prices.split('\n')
                 stock_val = stock_val[1:-1]
                 stock_val = stock_val[0].split(',')
-                #print(stock_val)
                 share_data.append(stock_val)
-               # print(share_data[len(share_data)-1])
 
             check = check + timedelta(days=1)
             next_day = next_day + timedelta(days=1)
@@ -82,9 +75,7 @@ class StockValues:
             elif num_of_days == 2:
                 reader = reader[len(reader)-2:]
             csvFile.close()
-
         return reader
-
 
     def write_into_csv(self, csvData):
         flag = 0
