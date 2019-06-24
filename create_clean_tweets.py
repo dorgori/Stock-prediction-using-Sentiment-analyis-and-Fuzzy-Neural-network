@@ -81,9 +81,6 @@ class CsvCountries():
         path = os.getcwd()
         if self.folderValidation(path + '/Csv By Days') == 0:
             os.mkdir(path + '/Csv By Days')
-        # for name in self.folder_list:
-        #     if self.folderValidation(path + '/Csv By Days'+'/'+name) == 0:  # Folder doesnt exists
-        #         os.mkdir(path + '/Csv By Days'+'/'+name)
 
     def folderValidation(self, path_name):
         if not os.path.isdir(path_name):
