@@ -8,11 +8,12 @@ import time,csv
 import datetime, math
 from datetime import timedelta
 import config_params as cp
-
+import os
 
 class NeuralNet():
     def __init__(self, mode):
         #tic = time.time()
+        self.mode = mode
         self.createMoodList()
         self.createStockLists()
         for i in range(1):
@@ -31,7 +32,9 @@ class NeuralNet():
 
     def createMoodList(self):
         self.path = 'Public Mood/' + cp.mood_file_path
-        moodFile = glob.glob(self.path + "*.csv")[0]
+        if self.mode == cp.PREDICT:
+            self.path = '../Public Mood/' + cp.mood_file_path
+        moodFile = glob.glob(self.path + ".csv")[0]
         df = pd.read_csv(moodFile)
         self.joy_values = df['joy']
         self.surprise_value = df['surprise']
@@ -103,6 +106,8 @@ class NeuralNet():
 
     def createStockLists(self):
         self.path = 'Stock Values/'
+        if self.mode == cp.PREDICT:
+            self.path = '../Stock Values/'
         self.StockFile = glob.glob(self.path+"*.csv")[0]
         df = pd.read_csv(self.StockFile)
         self.open_values = df['Open']
@@ -216,7 +221,9 @@ class NeuralNet():
                 self.accurate_list.append(0.5)
 
     def readUpdateWeights(self):
-        df = pd.read_csv(cp.train_weights_file)
+        if self.mode == cp.PREDICT:
+            self.path = '../' + cp.train_weights_file
+        df = pd.read_csv(self.path)
         w1 = df['w1'][-1:]
         w2 = df['w1'][-1:]
         w3 = df['w3'][-1:]

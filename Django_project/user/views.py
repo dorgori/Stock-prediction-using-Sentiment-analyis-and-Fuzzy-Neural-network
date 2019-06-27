@@ -1,14 +1,14 @@
 from django.shortcuts import render
-from django.contrib import messages
 from datetime import datetime, timedelta
 from django.contrib.auth.decorators import login_required
-from Django_project.settings import PLOT_URL, CSV_URL
-import csv
+from Django_project.settings import PLOT_URL, CSV_URL, PREDICT_URL, BASE_PROJ_DIR
 import numpy as np
 import glob
 import pandas as pd
-import matplotlib.pyplot as plt
-
+import sys
+import os
+sys.path.append(os.path.abspath("../"))
+import predict
 
 
 def home(request):
@@ -31,6 +31,7 @@ def user(request):
         data = request.POST
         stock_name = data['stockName']
         print(stock_name)
+
         start_date = now - timedelta(days=5)
         end_date = now - timedelta(days=1)
         start_date = start_date.date()
@@ -39,15 +40,17 @@ def user(request):
         end_date = str(end_date)
         print(start_date)
         print(end_date)
-        plot = check_for_file(stock_name)
 
+        plot = check_for_file(stock_name)
         stock_vals = get_values(plot, 0)
         dates = get_values(plot,1)
-
         print(dates)
+
+        predict.Predict(stock_name, end_date)
+
+
         #gets csv details
         #creating plot
-        #save as image
         #get prediction
         if plot != None:
             plot_exist = True
@@ -98,12 +101,5 @@ def check_for_file(filename):
     for i in range(5):
         plot_det.append((stock_close_gate[i], dates[i]))
 
-
     array = np.array(plot_det)
-
-    #plt.plot(dates, stock_close_gate)
-    #plt.ylabel('Share Values')
-    #plt.xlabel('Dates')
-    #plt.show()
-
     return [dates, plot_det]
