@@ -15,11 +15,14 @@ class StockValues:
     choose symbol, since date, until date
     '''
     def init_symbol(self):
-        #self.symbol = 'SCCO' #copper - נחושת
-        #self.symbol = 'NDAQ' #nasdaq
-        self.symbol = 'SNP' #S&P
-        self.since_date = '2019-06-19'
-        self.until_date = '2019-06-24'
+    #self.symbol = 'SCCO'       #Copper
+        self.symbol = 'NDAQ'   #Nasdaq
+        #self.symbol = 'SNP'    #S&P
+        #self.symbol = "AAPL"   #Apple
+        #self.symbol = "AMZN"   #Amazon
+
+        self.since_date = '2019-05-28'
+        self.until_date = '2019-06-27'
 
 
     def minning_share(self):
