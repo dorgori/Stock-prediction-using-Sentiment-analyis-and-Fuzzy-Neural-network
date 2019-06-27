@@ -67,6 +67,8 @@ class Predict():
             dates_list = df['Date']
             dates_list = dates_list.get_values()
             if self.date in dates_list:
+                print(self.date)
+                print(dates_list)
                 return 1
             return 0
         return 0

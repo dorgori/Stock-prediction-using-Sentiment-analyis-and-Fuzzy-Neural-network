@@ -2,6 +2,7 @@ from django.shortcuts import render
 from datetime import datetime, timedelta
 from django.contrib.auth.decorators import login_required
 from Django_project.settings import PRED_URL, CSV_URL, PREDICT_URL, BASE_PROJ_DIR
+import datetime
 import numpy as np
 import glob
 import pandas as pd
@@ -22,11 +23,11 @@ def base(request):
 
 @login_required
 def user(request):
-    now = datetime.today()
+    now = datetime.datetime.today()
     today = str(now)[:10]
     max_date = today
     plot_exist = False
-    stocks_names = ['AAPL', 'AMZN', 'NASDAQ', 'S%P500', 'SCCO']
+    stocks_names = ['AAPL', 'AMZN', 'NDAQ', 'SNP', 'SCCO']
     if request.method == 'POST':
         data = request.POST
         stock_name = data['stockName']
@@ -34,8 +35,7 @@ def user(request):
 
         start_date = now - timedelta(days=5)
         end_date = now - timedelta(days=1)
-        start_date = start_date.date()
-        end_date = end_date.date()
+
         start_date = str(start_date)
         end_date = str(end_date)
 
@@ -43,15 +43,17 @@ def user(request):
         print(end_date)
 
         plot = check_for_file(stock_name)
+        print(plot[1])
         stock_vals = get_values(plot, 0)
-        dates = get_values(plot,1)
-        print(dates)
+        dates = get_values(plot, 1)
+        print(stock_vals)
 
         end_date = now.date()
         end_date = str(end_date)
 
         predict.Predict(stock_name, end_date)
         pred_results = read_pred_file(stock_name)
+        print(pred_results)
         decisions = get_decisions(pred_results)
         # Send it to html
 
@@ -91,8 +93,8 @@ def get_values(data, option):
         return ret
     if option == 1:
         for det in data[1]:
-            t_date = datetime.strptime(det[1], '%m/%d/%Y')
-            s_date = datetime.strftime(t_date, '%d-%m-%Y')
+            t_date = datetime.datetime.strptime(det[1], '%m/%d/%Y')
+            s_date = datetime.datetime.strftime(t_date, '%m/%d/%Y')
             print(s_date)
             ret.append(str(det[1]))
         return ret

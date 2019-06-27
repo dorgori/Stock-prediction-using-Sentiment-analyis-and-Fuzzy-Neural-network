@@ -2,41 +2,36 @@
 <!DOCTYPE html> {% block content %}
 <div class="jumbotron jumbotron-fluid">
     <div class="container">
-        <h1 class="display-4">Stock Predicting</h1>
+        <h1 class="display-4">Stock Prediction</h1>
         <p class="lead">Welcome to Stock-Predicting by using sentiment analysis! Are you ready to earn money? Start using our application.</p>
     </div>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
 </div>
 <section style="display:flex;
                 flex-direction: row;
                 justify-content: space-evenly;">
-    <div class="card" style="width: 18rem;">
+
+    <div class="card text-white bg-danger mb-3" style="max-width: 18rem;">
+        <div class="card-header"></div>
         <div class="card-body">
-            <h5 class="card-title">Our Model</h5>
-            <p class="card-text">Our model predict stock behavior and gives recommendation about Buy and Sell shares.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
+            <h5 class="card-title">Make it easy</h5>
+            <p class="card-text">The stock market goes up and down, but savvy investors come out ahead over the long term. You don't need to be a hedge-fund manager or a billionaire. An ordinary individual investor can beat Wall Street at its own game. You just need to have
+                information that gives you an edge. That's where we come in.</p>
         </div>
     </div>
-    <div class="card" style="width: 18rem;">
+    <div class="card text-white bg-warning mb-3" style="max-width: 18rem;">
+        <div class="card-header"></div>
         <div class="card-body">
-            <h5 class="card-title">Features</h5>
-            <ul>
-                <li class="card-text">
-                    Using Sentiment-Analysis on tweets.
-                </li>
-                <li class="card-text">
-                    Minning stock values from Yahoo Finance.
-                </li>
-                <li class="card-text">
-                    Using Neural Network to predict stock behavior and gives recommendation.
-                </li>
-            </ul>
+            <h5 class="card-title">How it's work?</h5>
+            <p class="card-text">We found that there is a correlation between the social mood and stock market behavior. We collect information by minning tweets from Twitter and stock data from trading sites, putting into a neural network that we have developed and getting
+                a recommandation to action.</p>
         </div>
     </div>
-    <div class="card" style="width: 18rem;">
+    <div class="card text-white bg-info mb-3" style="max-width: 18rem;">
+        <div class="card-header"></div>
         <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <h5 class="card-title">Info card title</h5>
+            <p class="card-text">We found that there is a correlation between the social mood and stock market behavior. We collect information by minning tweets from Twitter and stock data from trading sites, putting into a neural network that we have developed and getting
+                a recommandation to action.</p>
         </div>
     </div>
 </section>
@@ -45,9 +40,9 @@
                 flex-direction: row;
                 justify-content: space-evenly;">
     <div class="card" style="width: 18rem;">
-        <img class="snp-img-top" src="..." alt="Card image cap">
+        <img class="snp-img-top" src="https://www.apple.com/ac/structured-data/images/knowledge_graph_logo.png?201809210816" alt="Apple logo" style="width: 50px; height: 50px; margin-left: 7rem; margin-top: 1rem; margin-bottom: 0.8rem;">
         <div class="card-body">
-            <h5 class="card-title">Microsoft Model</h5>
+            <h5 class="card-title" style="text-align: center;">Apple Model</h5>
             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
             <div class="progress">
                 <div class="progress-bar" role="progressbar" style="width: 63.5%;" aria-valuenow="63.5" aria-valuemin="0" aria-valuemax="100">63.5%</div>
@@ -55,9 +50,9 @@
         </div>
     </div>
     <div class="card" style="width: 18rem;">
-        <img class="card-img-top" src="..." alt="Card image cap">
+        <img class="card-img-top" src="https://www.logolynx.com/images/logolynx/d6/d6e06b2a0eeb44b9533530554fbbcb74.png" alt="amzn logo" style="width: 150px; height: 80px; margin-left: 5rem;">
         <div class="card-body">
-            <h5 class="card-title">Amazon Model</h5>
+            <h5 class="card-title" style="text-align: center;">Amazon Model</h5>
             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
             <div class="progress">
                 <div class="progress-bar" role="progressbar" style="width: 61%;" aria-valuenow="61" aria-valuemin="0" aria-valuemax="100">61%</div>
@@ -65,12 +60,37 @@
         </div>
     </div>
     <div class="card" style="width: 18rem;">
-        <img class="card-img-top" src="..." alt="Card image cap">
+        <img class="card-img-top" src="https://www.quantamize.com/site-assets/v2/images/nasdaq.png" alt="nasdaq logo" style="width: 150px; height: 80px; margin-left: 5rem;">
         <div class="card-body">
-            <h5 class="card-title">Apple Model</h5>
+            <h5 class="card-title" style="text-align: center;">Nasdaq Model</h5>
             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
             <div class="progress">
                 <div class="progress-bar" role="progressbar" style="width: 62%;" aria-valuenow="62" aria-valuemin="0" aria-valuemax="100">62%</div>
+            </div>
+        </div>
+    </div>
+</section>
+<section style="margin-top: 2rem;
+                display:flex;
+                flex-direction: row;
+                justify-content: space-evenly;">
+    <div class="card" style="width: 18rem;">
+        <img class="snp-img-top" src="https://www.standardandpoors.com/rdsm-disclosure-theme/images/logo_spg_rtng_home.png" alt="snp500 logo" style="width: 150px; height: 90px; margin-left: 4.5rem;">
+        <div class="card-body">
+            <h5 class="card-title" style="text-align: center;">S&P500 Model</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <div class="progress">
+                <div class="progress-bar" role="progressbar" style="width: 63.5%;" aria-valuenow="63.5" aria-valuemin="0" aria-valuemax="100">63.5%</div>
+            </div>
+        </div>
+    </div>
+    <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="https://www.globalxfunds.com/content/files/global-x-1200.jpg" alt="global x logo " style="width: 150px; height: 90px; margin-left: 4.5rem; margin-top: 1rem;">
+        <div class="card-body">
+            <h5 class="card-title" style="text-align: center;">Global X Copper Miners ETF Model</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <div class="progress">
+                <div class="progress-bar" role="progressbar" style="width: 61%;" aria-valuenow="61" aria-valuemin="0" aria-valuemax="100">61%</div>
             </div>
         </div>
     </div>

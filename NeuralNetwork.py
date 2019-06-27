@@ -19,7 +19,6 @@ class NeuralNet():
         for i in range(1):
             if mode != cp.PREDICT:
                 training_len = int(len(self.open_values) * 0.8)
-
                 self.training(training_len)
                 stock_name = self.StockFile.replace('Stock Values\\', "")
                 stock_name = stock_name[:stock_name.find('-')].lower()
@@ -101,7 +100,8 @@ class NeuralNet():
         self.path = 'Stock Values/'
         if self.mode == cp.PREDICT:
             self.path = '../Stock Values/'
-        self.StockFile = glob.glob(self.path+"*.csv")[1]
+        self.StockFile = glob.glob(self.path+"*.csv")[0]
+        print(self.StockFile)
         df = pd.read_csv(self.StockFile)
         self.open_values = df['Open']
         self.close_value = df['Close']
@@ -167,7 +167,7 @@ class NeuralNet():
     def testing(self, start_index, symbol):
         self.accurate_list = []
         weights = self.readUpdateWeights(symbol)
-        weights = self.weights
+        #weights = self.weights
 
         try:
             for i in range(start_index, len(self.open_values) - 2):
@@ -191,7 +191,8 @@ class NeuralNet():
                 # TODO: Calc Y total
                 yp = [val * weights[k] for k,val in enumerate(Normalized_list)]
                 y_out_total = (np.sum(yp))
-
+                print(i)
+                print(y_out_total)
                 # TODO: Calc Y desire
                 close_gate_ref_today = self.close_value[i]
                 open_gate_ref_today = self.open_values[i]
