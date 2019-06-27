@@ -6,7 +6,7 @@ import glob, os
 
 # clean tweets
 
-class CsvCountries():
+class NLP():
     def __init__(self):
         self.getFilesList()
         self.readCsvPerDay()
@@ -90,7 +90,7 @@ class CsvCountries():
 
 
 if __name__ == "__main__":
-    window = CsvCountries()
+    window = NLP()
 
 
 
