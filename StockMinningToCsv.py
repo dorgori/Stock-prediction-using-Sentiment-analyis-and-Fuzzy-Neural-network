@@ -15,10 +15,10 @@ class StockValues:
     choose symbol, since date, until date
     '''
     def init_symbol(self):
-        self.symbol = 'AAPL'
-        #self.symbol = 'AMZN'
-        #self.symbol = 'SPOT'
-        self.since_date = '2019-06-23'
+        #self.symbol = 'SCCO' #copper - נחושת
+        #self.symbol = 'NDAQ' #nasdaq
+        self.symbol = 'SNP' #S&P
+        self.since_date = '2019-06-19'
         self.until_date = '2019-06-24'
 
 
@@ -84,8 +84,8 @@ class StockValues:
             headlines = ['Date', 'Open', 'High', 'Low', 'Close', 'Adj Close', 'Volume']
         with open('Stock Values/' + self.symbol + self.file_name, 'a+', newline='') as csvFile:
             writer = csv.writer(csvFile)
-            # if flag == 1:
-            #     writer.writerow(headlines)
+            if flag == 1:
+                writer.writerow(headlines)
             writer.writerows(csvData)
             csvFile.close()
 
