@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from datetime import datetime, timedelta
 from django.contrib.auth.decorators import login_required
-from Django_project.settings import PLOT_URL, CSV_URL, PREDICT_URL, BASE_PROJ_DIR
+from Django_project.settings import PRED_URL, CSV_URL, PREDICT_URL, BASE_PROJ_DIR
 import numpy as np
 import glob
 import pandas as pd
@@ -26,7 +26,7 @@ def user(request):
     today = str(now)[:10]
     max_date = today
     plot_exist = False
-    stocks_names = ['AAPL', 'SPOT', 'MCRSFT']
+    stocks_names = ['AAPL', 'AMZN', 'NASDAQ', 'S%P500', 'SCCO']
     if request.method == 'POST':
         data = request.POST
         stock_name = data['stockName']
@@ -38,6 +38,7 @@ def user(request):
         end_date = end_date.date()
         start_date = str(start_date)
         end_date = str(end_date)
+
         print(start_date)
         print(end_date)
 
@@ -46,12 +47,14 @@ def user(request):
         dates = get_values(plot,1)
         print(dates)
 
+        end_date = now.date()
+        end_date = str(end_date)
+
         predict.Predict(stock_name, end_date)
+        pred_results = read_pred_file(stock_name)
+        decisions = get_decisions(pred_results)
+        # Send it to html
 
-
-        #gets csv details
-        #creating plot
-        #get prediction
         if plot != None:
             plot_exist = True
         return render(request, 'user/user.html', {'max_date': max_date,
@@ -66,6 +69,13 @@ def user(request):
                                                   'day3': dates[2],
                                                   'day2': dates[3],
                                                   'day1': dates[4],
+                                                  'pred5': decisions[0],
+                                                  'pred4': decisions[1],
+                                                  'pred3': decisions[2],
+                                                  'pred2': decisions[3],
+                                                  'pred1': decisions[4],
+                                                  'pred0': decisions[5],
+                                                  'stocks_names': stocks_names,
                                                   'stock_name': stock_name})
     else:
         return render(request, 'user/user.html', {'max_date': max_date,
@@ -103,3 +113,28 @@ def check_for_file(filename):
 
     array = np.array(plot_det)
     return [dates, plot_det]
+
+def read_pred_file(stock_name):
+    pred_file = glob.glob(PRED_URL + stock_name + '-predicts.csv')[0]
+    df = pd.read_csv(pred_file)
+    pred_results = df['Predict']
+    pred_results = pred_results.get_values()
+    pred_results = pred_results[-6:]
+    print(pred_results)
+    return pred_results
+
+def get_decisions(predictions):
+    decisions_results = []
+    for prediction in predictions:
+        if prediction >= 0.85:
+            decisions_results.append('Strong Buy')
+        elif prediction >= 0.6:
+            decisions_results.append('Buy')
+        elif prediction >= 0.45:
+            decisions_results.append('Stay')
+        elif prediction >= 0.3:
+            decisions_results.append('Sell')
+        else:
+            decisions_results.append('Strong Sell')
+
+    return decisions_results

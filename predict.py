@@ -1,5 +1,5 @@
 import NeuralNetwork
-import config_params as cp
+from Django_project.settings import PRED_URL
 import numpy as np
 import csv
 import os
@@ -16,6 +16,8 @@ class Predict():
         if self.check_if_date_existed() == 0:
             self.net = NeuralNetwork.NeuralNet(cp.PREDICT)
             self.net_predict()
+
+        self.results = self.read_predicts()
 
     def net_predict(self):
         # TODO: Layer 2
@@ -46,20 +48,20 @@ class Predict():
         y_out_total = np.sum(yp, dtype=np.float64)
         print(y_out_total)
         # write into csvFile
-        if not os.path.isfile(self.path + cp.predict_file + self.symbol + '-predicts.csv'):
+        if not os.path.isfile(PRED_URL + self.symbol + '-predicts.csv'):
             highlights = ['Date', 'Predict']
-            with open(self.path + cp.predict_file + self.symbol + '-predicts.csv', 'a+', newline='') as csvFile:
+            with open(PRED_URL + self.symbol + '-predicts.csv', 'a+', newline='') as csvFile:
                 writer = csv.writer(csvFile)
                 writer.writerow(highlights)
                 writer.writerow([self.date, y_out_total])
         else:
-            with open(self.path + cp.predict_file + self.symbol + '-predicts.csv', 'a+', newline='') as csvFile:
+            with open(PRED_URL + self.symbol + '-predicts.csv', 'a+', newline='') as csvFile:
                 writer = csv.writer(csvFile)
                 writer.writerow([self.date, y_out_total])
 
     def check_if_date_existed(self):
-        if os.path.isfile(self.path + cp.predict_file + self.symbol + '-predicts.csv'):
-            predictFile = glob.glob(self.path + cp.predict_file + self.symbol + "-predicts.csv")[0]
+        if os.path.isfile(PRED_URL + self.symbol + '-predicts.csv'):
+            predictFile = glob.glob(PRED_URL + self.symbol + "-predicts.csv")[0]
             df = pd.read_csv(predictFile)
 
             dates_list = df['Date']
@@ -68,6 +70,17 @@ class Predict():
                 return 1
             return 0
         return 0
+
+    def read_predicts(self):
+        if os.path.isfile(PRED_URL + self.symbol + '-predicts.csv'):
+            predictFile = glob.glob(PRED_URL + self.symbol + "-predicts.csv")[0]
+            df = pd.read_csv(predictFile)
+            predicts_list = df['Predict']
+            predicts_list = predicts_list.get_values()
+            predicts_list = predicts_list[-6:]
+            print(predicts_list)
+            return predicts_list
+        return None
 
 if __name__ == "__main__":
     window = Predict()
