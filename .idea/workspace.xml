@@ -2,13 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="18aa8204-3ac2-4716-9734-d4dcffe65d66" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/Stock-prediction-using-Sentiment-analyis-and-Fuzzy-Neural-network.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Stock-prediction-using-Sentiment-analyis-and-Fuzzy-Neural-network.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Django_project/Django_project/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/Django_project/Django_project/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Django_project/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/Django_project/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Django_project/user/templates/user/user.html" beforeDir="false" afterPath="$PROJECT_DIR$/Django_project/user/templates/user/user.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Django_project/user/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/Django_project/user/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/net_output/predicts/symbol-predict.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Django_project/static/predicts/AAPL-predicts.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NeuralNetwork.py" beforeDir="false" afterPath="$PROJECT_DIR$/NeuralNetwork.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Public Mood/good_analysis_mood.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Public Mood/good_analysis_mood.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config_params.py" beforeDir="false" afterPath="$PROJECT_DIR$/config_params.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/net_output/predicts/AAPL-predicts.csv" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/predict.py" beforeDir="false" afterPath="$PROJECT_DIR$/predict.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -19,80 +18,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Django_project/user/templates/user/user.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="277">
-              <caret line="73" column="27" selection-start-line="73" selection-start-column="27" selection-end-line="73" selection-end-column="27" />
-              <folding>
-                <element signature="n#style#0;n#div#1;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#form#0;n#div#1;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#form#0;n#div#1;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#h6#0;n#div#0;n#form#0;n#div#1;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#select#0;n#div#0;n#form#0;n#div#1;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#1;n#form#0;n#div#1;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#h6#0;n#div#1;n#form#0;n#div#1;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#input#0;n#div#1;n#form#0;n#div#1;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#button#0;n#form#0;n#div#1;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#2;n#form#0;n#div#1;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#1;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Django_project/user/templates/user/base.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="14" column="2" selection-start-line="14" selection-start-column="2" selection-end-line="14" selection-end-column="2" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Django_project/user/views.py">
+        <entry file="file://$PROJECT_DIR$/NeuralNetwork.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="78" column="74" selection-start-line="78" selection-start-column="74" selection-end-line="78" selection-end-column="74" />
+            <state relative-caret-position="425">
+              <caret line="193" lean-forward="true" selection-start-line="193" selection-end-line="193" />
               <folding>
-                <element signature="e#0#35#0" expanded="true" />
+                <element signature="e#2#13#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Django_project/user/templates/user/home.html">
+        <entry file="file://$PROJECT_DIR$/config_params.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="46" column="42" selection-start-line="46" selection-start-column="42" selection-end-line="46" selection-end-column="42" />
-              <folding>
-                <element signature="n#style#0;n#section#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#section#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#1;n#section#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#2;n#section#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#section#1;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#section#1;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#1;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#1;n#section#1;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#section#1;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#2;n#section#1;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#2;n#section#1;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/predict.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="141">
-              <caret line="79" column="44" selection-start-line="79" selection-start-column="44" selection-end-line="79" selection-end-column="44" />
-              <folding>
-                <element signature="e#0#20#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="153">
+              <caret line="9" column="53" selection-start-line="9" selection-start-column="53" selection-end-line="9" selection-end-column="53" />
             </state>
           </provider>
         </entry>
@@ -109,13 +51,10 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>self.ssh_object</find>
-      <find>ssh_object</find>
       <find>delete</find>
       <find>date_time</find>
       <find>btn-outline-info</find>
       <find>i</find>
-      <find>print</find>
       <find>weights</find>
       <find>weights`</find>
       <find>80</find>
@@ -131,6 +70,17 @@
       <find>cp</find>
       <find>read</find>
       <find>symbol</find>
+      <find>self.path</find>
+      <find>accuracy_file</find>
+      <find>sym</find>
+      <find>tra</find>
+      <find>train</find>
+      <find>print</find>
+      <find>stock</find>
+      <find>stockfile</find>
+      <find>date_list</find>
+      <find>print(i</find>
+      <find>testin</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -153,7 +103,6 @@
         <option value="$PROJECT_DIR$/as.py" />
         <option value="$PROJECT_DIR$/Django_project/users/forms.py" />
         <option value="$PROJECT_DIR$/SOFNN.py" />
-        <option value="$PROJECT_DIR$/NeuralNetwork.py" />
         <option value="$PROJECT_DIR$/Django_project/user/widgets.py" />
         <option value="$PROJECT_DIR$/Django_project/user/models.py" />
         <option value="$PROJECT_DIR$/Django_project/user/urls.py" />
@@ -166,9 +115,11 @@
         <option value="$PROJECT_DIR$/StockMinningToCsv.py" />
         <option value="$PROJECT_DIR$/Django_project/user/templates/user/home.html" />
         <option value="$PROJECT_DIR$/Django_project/Django_project/settings.py" />
-        <option value="$PROJECT_DIR$/predict.py" />
         <option value="$PROJECT_DIR$/Django_project/user/templates/user/user.html" />
         <option value="$PROJECT_DIR$/Django_project/user/views.py" />
+        <option value="$PROJECT_DIR$/predict.py" />
+        <option value="$PROJECT_DIR$/config_params.py" />
+        <option value="$PROJECT_DIR$/NeuralNetwork.py" />
       </list>
     </option>
   </component>
@@ -195,20 +146,13 @@
             <path>
               <item name="Stock-prediction-using-Sentiment-analyis-and-Fuzzy-Neural-network" type="b2602c69:ProjectViewProjectNode" />
               <item name="Stock-prediction-using-Sentiment-analyis-and-Fuzzy-Neural-network" type="462c0819:PsiDirectoryNode" />
-              <item name="Django_project" type="462c0819:PsiDirectoryNode" />
+              <item name="net_output" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Stock-prediction-using-Sentiment-analyis-and-Fuzzy-Neural-network" type="b2602c69:ProjectViewProjectNode" />
               <item name="Stock-prediction-using-Sentiment-analyis-and-Fuzzy-Neural-network" type="462c0819:PsiDirectoryNode" />
-              <item name="Django_project" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Stock-prediction-using-Sentiment-analyis-and-Fuzzy-Neural-network" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Stock-prediction-using-Sentiment-analyis-and-Fuzzy-Neural-network" type="462c0819:PsiDirectoryNode" />
-              <item name="Django_project" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="predicts" type="462c0819:PsiDirectoryNode" />
+              <item name="net_output" type="462c0819:PsiDirectoryNode" />
+              <item name="weights" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -224,15 +168,15 @@
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\oreny\PycharmProjects\Stock-prediction-using-Sentiment-analyis-and-Fuzzy-Neural-network\Django_project\user\static\stocks_values" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\oreny\PycharmProjects\Stock-prediction-using-Sentiment-analyis-and-Fuzzy-Neural-network\Django_project" />
       <recent name="C:\Users\oreny\PycharmProjects\Stock-prediction-using-Sentiment-analyis-and-Fuzzy-Neural-network\Django_project\user\static" />
       <recent name="C:\Users\oreny\PycharmProjects\Stock-prediction-using-Sentiment-analyis-and-Fuzzy-Neural-network\Django_project\Django_project" />
       <recent name="C:\Users\oreny\PycharmProjects\Stock-prediction-using-Sentiment-analyis-and-Fuzzy-Neural-network" />
       <recent name="C:\Users\oreny\PycharmProjects\Stock-prediction-using-Sentiment-analyis-and-Fuzzy-Neural-network\Django_project\user\templates\user" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\oreny\PycharmProjects\Stock-prediction-using-Sentiment-analyis-and-Fuzzy-Neural-network\Django_project\user\static\stocks_values" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -247,7 +191,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.StockMinningToCsv">
+  <component name="RunManager" selected="Python.NeuralNetwork">
     <configuration name="NeuralNetwork" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Stock-prediction-using-Sentiment-analyis-and-Fuzzy-Neural-network" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -355,8 +299,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.StockMinningToCsv" />
         <item itemvalue="Python.NeuralNetwork" />
+        <item itemvalue="Python.StockMinningToCsv" />
         <item itemvalue="Python.SOFNN" />
         <item itemvalue="Python.forms" />
         <item itemvalue="Python.as" />
@@ -378,19 +322,20 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18303572" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3289689" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.29787233" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.29787233" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.38134205" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32941177" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="8" visible="true" weight="0.3289689" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.3289689" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Python Console" order="10" weight="0.32941177" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
@@ -403,20 +348,18 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/NeuralNetwork.py</url>
-          <line>169</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/Django_project/user/views.py</url>
           <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/NeuralNetwork.py</url>
+          <line>218</line>
+          <option name="timeStamp" value="40" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/../ECG_Data_viewer/sshConnect.py" />
-    <entry file="file://$PROJECT_DIR$/../ECG_Data_viewer/RampTest.py" />
     <entry file="file://$PROJECT_DIR$/../ECG_Data_viewer/config_file.py" />
     <entry file="file://$PROJECT_DIR$/../ECG_Data_viewer/configuration_gui.py" />
     <entry file="file://$PROJECT_DIR$/../ECG_Data_viewer/main.py" />
@@ -608,57 +551,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config_params.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="23" selection-start-line="10" selection-start-column="23" selection-end-line="10" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/NeuralNetwork.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="141">
-          <caret line="37" column="20" selection-start-line="37" selection-start-column="16" selection-end-line="37" selection-end-column="20" />
-          <folding>
-            <element signature="e#2#13#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Django_project/Django_project/settings.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="243">
           <caret line="19" column="54" selection-start-line="19" selection-start-column="54" selection-end-line="19" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/predict.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="141">
-          <caret line="79" column="44" selection-start-line="79" selection-start-column="44" selection-end-line="79" selection-end-column="44" />
-          <folding>
-            <element signature="e#0#20#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Django_project/user/templates/user/home.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="46" column="42" selection-start-line="46" selection-start-column="42" selection-end-line="46" selection-end-column="42" />
-          <folding>
-            <element signature="n#style#0;n#section#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#section#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#section#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#2;n#section#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#section#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#section#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#section#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#section#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#2;n#section#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#2;n#section#1;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -690,12 +586,73 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Django_project/user/templates/user/home.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="46" column="42" selection-start-line="46" selection-start-column="42" selection-end-line="46" selection-end-column="42" />
+          <folding>
+            <element signature="n#style#0;n#section#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#section#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#section#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#section#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#section#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#section#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#section#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#section#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#section#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#2;n#section#1;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/predict.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="127">
+          <caret line="45" column="56" selection-start-line="45" selection-start-column="56" selection-end-line="45" selection-end-column="56" />
+          <folding>
+            <element signature="e#0#20#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Django_project/user/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="78" column="74" selection-start-line="78" selection-start-column="74" selection-end-line="78" selection-end-column="74" />
+        <state relative-caret-position="120">
+          <caret line="116" column="4" selection-start-line="116" selection-start-column="4" selection-end-line="116" selection-end-column="4" />
           <folding>
             <element signature="e#0#35#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37/Lib/site-packages/numpy/core/fromnumeric.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="32">
+          <caret line="3126" column="4" selection-start-line="3126" selection-start-column="4" selection-end-line="3126" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37/Lib/site-packages/pandas/io/parsers.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="134">
+          <caret line="1852" selection-start-line="1852" selection-end-line="1852" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config_params.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="53" selection-start-line="9" selection-start-column="53" selection-end-line="9" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/NeuralNetwork.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="193" lean-forward="true" selection-start-line="193" selection-end-line="193" />
+          <folding>
+            <element signature="e#2#13#0" expanded="true" />
           </folding>
         </state>
       </provider>

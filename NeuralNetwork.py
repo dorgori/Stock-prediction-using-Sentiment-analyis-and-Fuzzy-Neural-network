@@ -18,15 +18,17 @@ class NeuralNet():
         self.createStockLists()
         for i in range(1):
             if mode != cp.PREDICT:
-                training_len = int(len(self.mood_list) * 0.8)
+                training_len = int(len(self.open_values) * 0.8)
+
                 self.training(training_len)
-                self.testing(training_len)
-                accuracy = np.sum(self.accurate_list) / len(self.accurate_list)
-                stock_name = self.StockFile.replace('Stock Values\\',"")
+                stock_name = self.StockFile.replace('Stock Values\\', "")
                 stock_name = stock_name[:stock_name.find('-')].lower()
-                with open(cp.accuracy_file+stock_name, 'a+', newline='') as csvFile:
+                self.testing(training_len, stock_name)
+                accuracy = np.sum(self.accurate_list) / len(self.accurate_list)
+                # Need to create Highlights to csv!!!!!
+                with open(cp.accuracy_file + stock_name + '.csv', 'a+', newline='') as csvFile:
                     writer = csv.writer(csvFile)
-                    writer.writerow([self.weights[0],self.weights[1],self.weights[2],accuracy])
+                    writer.writerow([self.weights[0], self.weights[1], self.weights[2],accuracy])
                 print(accuracy)
         #print(time.time()- tic)
 
@@ -44,24 +46,16 @@ class NeuralNet():
 
     def calcGausianFunction(self, values_list):
         mean = np.mean(values_list)
-        variance = self.calcVariance(values_list, mean)
-        Mik_list = []
-        for xi in values_list:
-            expo = ((xi - mean)**2) / variance
-            Mik_list.append(math.exp(-expo))
+        std = np.std(values_list)
+        if std == 0:
+            std = 0.00512
+        Mik_list = self.gaussmf(values_list, mean, std)
         return Mik_list
-
-    def calcVariance(self,values_list, mean):
-        sum = 0
-        for val in values_list:
-            sum += ((val - mean) ** 2)
-        #sum = np.var(values_list)
-        return sum
 
     def training(self, end_index):
         try:
             self.weights = abs(np.random.rand(3))
-            #print(self.weights)
+
             for i in range(0, end_index - 2):
                 # TODO: Layer 2
                 if self.validDateContiously(i) == -1:  # Date jump
@@ -73,7 +67,6 @@ class NeuralNet():
                 Mik_close_list = self.calcGausianFunction(self.close_value[i:i + 3])
                 Mik_high_list = self.calcGausianFunction(self.high_value[i:i + 3])
                 Mik_low_list = self.calcGausianFunction(self.low_value[i:i + 3])
-
                 Mik_total = [Mik_mood_list, Mik_open_list, Mik_close_list, Mik_high_list, Mik_low_list]
                 # TODO: Layer 3
                 Mk_list = self.createMkList(Mik_total)
@@ -92,7 +85,7 @@ class NeuralNet():
                 self.setDesiredValue(open_gate_ref, close_gate_ref)
 
                 # TODO: Loss function
-                loss_function  = math.pow(y_out_total - self.desired_output, 2)
+                loss_function = math.pow(y_out_total - self.desired_output, 2)
                 learning_rate = 0.01
                 delta_w_list = [val * loss_function for val in Normalized_list]
 
@@ -108,7 +101,7 @@ class NeuralNet():
         self.path = 'Stock Values/'
         if self.mode == cp.PREDICT:
             self.path = '../Stock Values/'
-        self.StockFile = glob.glob(self.path+"*.csv")[0]
+        self.StockFile = glob.glob(self.path+"*.csv")[1]
         df = pd.read_csv(self.StockFile)
         self.open_values = df['Open']
         self.close_value = df['Close']
@@ -171,11 +164,13 @@ class NeuralNet():
         except:
             traceback.print_exc()
 
-    def testing(self, start_index):
+    def testing(self, start_index, symbol):
         self.accurate_list = []
-        weights = self.readUpdateWeights()
+        weights = self.readUpdateWeights(symbol)
+        weights = self.weights
+
         try:
-            for i in range(start_index, len(self.mood_list) - 2):
+            for i in range(start_index, len(self.open_values) - 2):
                 #Layer 2
                 if self.validDateContiously(i) == -1:  # Date jump
                     continue
@@ -220,16 +215,22 @@ class NeuralNet():
             else:
                 self.accurate_list.append(0.5)
 
-    def readUpdateWeights(self):
+    def readUpdateWeights(self, symbol):
         if self.mode == cp.PREDICT:
             self.path = '../' + cp.train_weights_file
-        df = pd.read_csv(self.path)
+            df = pd.read_csv(self.path + symbol + '.csv')
+        else:
+            df = pd.read_csv(cp.train_weights_file + symbol + '.csv')
         w1 = df['w1'][-1:]
         w2 = df['w1'][-1:]
         w3 = df['w3'][-1:]
         weights = [w1, w2, w3]
         return weights
 
+    def gaussmf(self, x, c, v):
+        """Compute Gaussian Membership function. """
+        y = [np.exp(-np.power((i - c), 2) / (2 * v ** 2.0)) for i in x]
+        return y
 
 if __name__ == "__main__":
     try:

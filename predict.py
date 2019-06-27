@@ -43,7 +43,7 @@ class Predict():
         Normalized_list = [val / mk_sum for val in Mk_list]
 
         # TODO:  Layer 5 - Predict
-        weights = self.net.readUpdateWeights()
+        weights = self.net.readUpdateWeights(self.symbol)
         yp = [val * weights[k] for k, val in enumerate(Normalized_list)]
         y_out_total = np.sum(yp, dtype=np.float64)
         print(y_out_total)
