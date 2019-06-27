@@ -1,13 +1,21 @@
-
-
 import NeuralNetwork
 import config_params as cp
 import numpy as np
+import csv
+import os
+import glob
+import pandas as pd
+import config_params as cp
+
 
 class Predict():
-    def __init__(self):
-        self.net = NeuralNetwork.NeuralNet(cp.PREDICT)
-        self.net_predict()
+    def __init__(self, symbol, date):
+        self.path = '../'
+        self.symbol = symbol
+        self.date = date
+        if self.check_if_date_existed() == 0:
+            self.net = NeuralNetwork.NeuralNet(cp.PREDICT)
+            self.net_predict()
 
     def net_predict(self):
         # TODO: Layer 2
@@ -37,7 +45,29 @@ class Predict():
         yp = [val * weights[k] for k, val in enumerate(Normalized_list)]
         y_out_total = np.sum(yp, dtype=np.float64)
         print(y_out_total)
+        # write into csvFile
+        if not os.path.isfile(self.path + cp.predict_file + self.symbol + '-predicts.csv'):
+            highlights = ['Date', 'Predict']
+            with open(self.path + cp.predict_file + self.symbol + '-predicts.csv', 'a+', newline='') as csvFile:
+                writer = csv.writer(csvFile)
+                writer.writerow(highlights)
+                writer.writerow([self.date, y_out_total])
+        else:
+            with open(self.path + cp.predict_file + self.symbol + '-predicts.csv', 'a+', newline='') as csvFile:
+                writer = csv.writer(csvFile)
+                writer.writerow([self.date, y_out_total])
 
+    def check_if_date_existed(self):
+        if os.path.isfile(self.path + cp.predict_file + self.symbol + '-predicts.csv'):
+            predictFile = glob.glob(self.path + cp.predict_file + self.symbol + "-predicts.csv")[0]
+            df = pd.read_csv(predictFile)
+
+            dates_list = df['Date']
+            dates_list = dates_list.get_values()
+            if self.date in dates_list:
+                return 1
+            return 0
+        return 0
 
 if __name__ == "__main__":
     window = Predict()
