@@ -1,6 +1,8 @@
 import NeuralNetwork
 from Django_project.settings import PRED_URL
 import numpy as np
+import datetime
+from datetime import timedelta
 import csv
 import os
 import glob
@@ -13,6 +15,12 @@ class Predict():
         self.path = '../'
         self.symbol = symbol
         self.date = date
+        self.prev_day = datetime.datetime.strptime(self.date, '%Y-%m-%d')
+        self.prev_day = self.prev_day - timedelta(days=1)
+        self.prev_day = datetime.datetime.strftime(self.prev_day, '%d/%m/%Y')
+        self.date = datetime.datetime.strptime(self.date, '%Y-%m-%d')
+        self.date = datetime.datetime.strftime(self.date, '%d/%m/%Y')
+
         if self.check_if_date_existed() == 0:
             self.net = NeuralNetwork.NeuralNet(cp.PREDICT)
             self.net_predict()
@@ -66,12 +74,13 @@ class Predict():
 
             dates_list = df['Date']
             dates_list = dates_list.get_values()
-            if self.date in dates_list:
-                print(self.date)
-                print(dates_list)
+            if self.prev_day in dates_list and self.date in dates_list:
                 return 1
-            return 0
-        return 0
+            if self.prev_day in dates_list and self.date not in dates_list:
+                return 0
+            if self.prev_day not in dates_list and self.date not in dates_list:
+                return 1
+        return 1
 
     def read_predicts(self):
         if os.path.isfile(PRED_URL + self.symbol + '-predicts.csv'):
@@ -80,7 +89,6 @@ class Predict():
             predicts_list = df['Predict']
             predicts_list = predicts_list.get_values()
             predicts_list = predicts_list[-6:]
-            print(predicts_list)
             return predicts_list
         return None
 

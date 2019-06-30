@@ -43,17 +43,16 @@ def user(request):
         print(end_date)
 
         plot = check_for_file(stock_name)
-        print(plot[1])
         stock_vals = get_values(plot, 0)
         dates = get_values(plot, 1)
-        print(stock_vals)
+     #   print(stock_vals)
 
         end_date = now.date()
         end_date = str(end_date)
 
         predict.Predict(stock_name, end_date)
         pred_results = read_pred_file(stock_name)
-        print(pred_results)
+        #print(pred_results)
         decisions = get_decisions(pred_results)
         # Send it to html
 
@@ -95,7 +94,7 @@ def get_values(data, option):
         for det in data[1]:
             t_date = datetime.datetime.strptime(det[1], '%m/%d/%Y')
             s_date = datetime.datetime.strftime(t_date, '%m/%d/%Y')
-            print(s_date)
+            #print(s_date)
             ret.append(str(det[1]))
         return ret
 
@@ -122,7 +121,7 @@ def read_pred_file(stock_name):
     pred_results = df['Predict']
     pred_results = pred_results.get_values()
     pred_results = pred_results[-6:]
-    print(pred_results)
+    #print(pred_results)
     return pred_results
 
 def get_decisions(predictions):
