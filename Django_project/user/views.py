@@ -26,7 +26,7 @@ def user(request):
     now = datetime.datetime.today()
     today = str(now)[:10]
     max_date = today
-    plot_exist = False
+    plot_exist = None;
     stocks_names = ['AAPL', 'AMZN', 'NDAQ', 'SNP', 'SCCO']
     if request.method == 'POST':
         data = request.POST
@@ -50,15 +50,20 @@ def user(request):
         end_date = now.date()
         end_date = str(end_date)
 
-        predict.Predict(stock_name, end_date)
-        pred_results = read_pred_file(stock_name)
-        #print(pred_results)
-        decisions = get_decisions(pred_results)
-        # Send it to html
-
-        if plot != None:
+        updodate = predict.Predict(stock_name).up_to_date
+        print(updodate)
+        if updodate == 0:
+            plot_exist = False
+            return render(request, 'user/user.html', {'max_date': max_date,
+                                                      'plot_exist': plot_exist,
+                                                      'stocks_names': stocks_names})
+        else:
             plot_exist = True
-        return render(request, 'user/user.html', {'max_date': max_date,
+            pred_results = read_pred_file(stock_name)
+            # print(pred_results)
+            decisions = get_decisions(pred_results)
+            # Send it to html
+            return render(request, 'user/user.html', {'max_date': max_date,
                                                   'plot_exist': plot_exist,
                                                   'stockVal5': stock_vals[0],
                                                   'stockVal4': stock_vals[1],

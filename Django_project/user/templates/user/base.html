@@ -22,6 +22,11 @@
                 <li class="nav-item active">
                     <a class="nav-link" href="{% url 'user-home' %}">Home <span class="sr-only">(current)</span></a>
                 </li>
+                {% if user.is_authenticated %}
+                <li>
+                    <a class="nav-item nav-link" href="{% url 'user-user' %}">User</a> {% else %}
+                </li>
+                {% endif %}
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'user-about' %}">About</a>
                 </li>

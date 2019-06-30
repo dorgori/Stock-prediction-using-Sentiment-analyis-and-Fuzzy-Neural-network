@@ -24,10 +24,9 @@ class NeuralNet():
                 stock_name = stock_name[:stock_name.find('-')].lower()
                 self.testing(training_len, stock_name)
                 accuracy = np.sum(self.accurate_list) / len(self.accurate_list)
-                # Need to create Highlights to csv!!!!!
-                with open(cp.accuracy_file + stock_name + '.csv', 'a+', newline='') as csvFile:
-                    writer = csv.writer(csvFile)
-                    writer.writerow([self.weights[0], self.weights[1], self.weights[2],accuracy])
+              #  with open(cp.accuracy_file + stock_name + '.csv', 'a+', newline='') as csvFile:
+              #      writer = csv.writer(csvFile)
+              #      writer.writerow([self.weights[0], self.weights[1], self.weights[2],accuracy])
                 print(accuracy)
         #print(time.time()- tic)
 
@@ -107,6 +106,7 @@ class NeuralNet():
         self.close_value = df['Close']
         self.high_value = df['High']
         self.low_value = df['Low']
+        self.stock_datelist = df['Date']
 
     def createMkList(self, Mik_total):
         Mk_list = []
@@ -167,13 +167,12 @@ class NeuralNet():
     def testing(self, start_index, symbol):
         self.accurate_list = []
         weights = self.readUpdateWeights(symbol)
-        #weights = self.weights
+        print("***")
+        print(weights)
 
         try:
-            for i in range(start_index, len(self.open_values) - 2):
+            for i in range(start_index, len(self.open_values)):
                 #Layer 2
-                if self.validDateContiously(i) == -1:  # Date jump
-                    continue
                 Mik_mood_list = self.calcGausianFunction(self.mood_list[i - 3:i])
                 Mik_open_list = self.calcGausianFunction(self.open_values[i - 3:i])
                 Mik_close_list = self.calcGausianFunction(self.close_value[i - 3:i])
@@ -192,6 +191,7 @@ class NeuralNet():
                 yp = [val * weights[k] for k,val in enumerate(Normalized_list)]
                 y_out_total = (np.sum(yp))
                 print(i)
+                print(self.date_list[i])
                 print(y_out_total)
                 # TODO: Calc Y desire
                 close_gate_ref_today = self.close_value[i]
@@ -223,7 +223,7 @@ class NeuralNet():
         else:
             df = pd.read_csv(cp.train_weights_file + symbol + '.csv')
         w1 = df['w1'][-1:]
-        w2 = df['w1'][-1:]
+        w2 = df['w2'][-1:]
         w3 = df['w3'][-1:]
         weights = [w1, w2, w3]
         return weights

@@ -2,6 +2,7 @@ import NeuralNetwork
 from Django_project.settings import PRED_URL
 import numpy as np
 import datetime
+import time
 from datetime import timedelta
 import csv
 import os
@@ -11,20 +12,32 @@ import config_params as cp
 
 
 class Predict():
-    def __init__(self, symbol, date):
+    def __init__(self, symbol):
         self.path = '../'
         self.symbol = symbol
-        self.date = date
-        self.prev_day = datetime.datetime.strptime(self.date, '%Y-%m-%d')
+        self.date = time.strftime('%m/%d/%Y')
+        self.prev_day = datetime.datetime.strptime(str(self.date), '%m/%d/%Y')
         self.prev_day = self.prev_day - timedelta(days=1)
-        self.prev_day = datetime.datetime.strftime(self.prev_day, '%d/%m/%Y')
-        self.date = datetime.datetime.strptime(self.date, '%Y-%m-%d')
-        self.date = datetime.datetime.strftime(self.date, '%d/%m/%Y')
+        self.prev_day = datetime.datetime.strftime(self.prev_day, '%m/%d/%Y')
+        self.date = str(self.date)
+        self.predict_updated = self.check_if_date_existed()
+        self.net = NeuralNetwork.NeuralNet(cp.PREDICT)
+        # ***Check if public mood updated***
+        if self.check_if_dates_updated(self.net.date_list) == 0:
+            self.up_to_date = 0
+        else:
+            # ***Check if stock values updated***
+            if self.check_if_dates_updated(self.net.stock_datelist) == 0:
+                self.up_to_date = 0
+            else:
+                self.up_to_date = 1
 
-        if self.check_if_date_existed() == 0:
-            self.net = NeuralNetwork.NeuralNet(cp.PREDICT)
+
+
+
+        # Check if predict updated
+        if self.predict_updated == 0:
             self.net_predict()
-
         self.results = self.read_predicts()
 
     def net_predict(self):
@@ -91,6 +104,16 @@ class Predict():
             predicts_list = predicts_list[-6:]
             return predicts_list
         return None
+
+    def check_if_dates_updated(self, datelist):
+        for _date in datelist.get_values():
+            d_date = datetime.datetime.strptime(_date, '%m/%d/%Y')
+            d_date = datetime.datetime.strftime(d_date, '%m/%d/%Y')
+            if self.prev_day == d_date:
+                return 1
+
+        return 0
+
 
 if __name__ == "__main__":
     window = Predict()
