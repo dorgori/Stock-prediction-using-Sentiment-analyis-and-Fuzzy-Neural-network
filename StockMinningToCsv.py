@@ -8,22 +8,18 @@ import copy
 class StockValues:
     def __init__(self):
         self.file_name = '-prices.csv'
-        self.init_symbol()
-        self.minning_share()
+        symbol_list = ['SCCO', 'NDAQ', 'SNP', 'AAPL', 'AMZN']
+        for symb in symbol_list:
+            self.init_symbol(symb)
+            self.minning_share()
 
     '''
     choose symbol, since date, until date
     '''
-    def init_symbol(self):
-    #self.symbol = 'SCCO'       #Copper
-        self.symbol = 'NDAQ'   #Nasdaq
-        #self.symbol = 'SNP'    #S&P
-        #self.symbol = "AAPL"   #Apple
-        #self.symbol = "AMZN"   #Amazon
-
-        self.since_date = '2019-05-28'
-        self.until_date = '2019-06-27'
-
+    def init_symbol(self, symbol):
+        self.symbol = symbol
+        self.since_date = '2019-06-27'
+        self.until_date = '2019-06-30'
 
     def minning_share(self):
         share_data = []
