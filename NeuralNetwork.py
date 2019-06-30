@@ -16,7 +16,7 @@ class NeuralNet():
         self.mode = mode
         self.createMoodList()
         self.createStockLists()
-        for i in range(1):
+        for i in range(100):
             if mode != cp.PREDICT:
                 training_len = int(len(self.open_values) * 0.8)
                 self.training(training_len)
@@ -24,10 +24,11 @@ class NeuralNet():
                 stock_name = stock_name[:stock_name.find('-')].lower()
                 self.testing(training_len, stock_name)
                 accuracy = np.sum(self.accurate_list) / len(self.accurate_list)
-              #  with open(cp.accuracy_file + stock_name + '.csv', 'a+', newline='') as csvFile:
-              #      writer = csv.writer(csvFile)
-              #      writer.writerow([self.weights[0], self.weights[1], self.weights[2],accuracy])
-                print(accuracy)
+                with open(cp.accuracy_file + stock_name + '.csv', 'a+', newline='') as csvFile:
+                    writer = csv.writer(csvFile)
+                    writer.writerow([self.weights[0], self.weights[1], self.weights[2],accuracy])
+                if accuracy > 0.57:
+                    print(accuracy)
         #print(time.time()- tic)
 
     def createMoodList(self):
@@ -38,8 +39,11 @@ class NeuralNet():
         df = pd.read_csv(moodFile)
         self.joy_values = df['joy']
         self.surprise_value = df['surprise']
-        #self.mood_list = self.joy_values + self.surprise_value
-        self.mood_list = self.joy_values
+        self.sad_value = df['sadness']
+        self.anger_value = df['anger']
+        self.fear_value = df['fear']
+        self.mood_list = self.joy_values +self.surprise_value
+        #self.mood_list = self.sad_value
         self.date_list = df['Date']
 
     def calcGausianFunction(self, values_list):
@@ -99,7 +103,7 @@ class NeuralNet():
         self.path = 'Stock Values/'
         if self.mode == cp.PREDICT:
             self.path = '../Stock Values/'
-        self.StockFile = glob.glob(self.path+"*.csv")[0]
+        self.StockFile = glob.glob(self.path+"*.csv")[1]
         print(self.StockFile)
         df = pd.read_csv(self.StockFile)
         self.open_values = df['Open']
@@ -166,9 +170,8 @@ class NeuralNet():
 
     def testing(self, start_index, symbol):
         self.accurate_list = []
-        weights = self.readUpdateWeights(symbol)
-        print("***")
-        print(weights)
+        #weights = self.readUpdateWeights(symbol)
+        weights = self.weights
 
         try:
             for i in range(start_index, len(self.open_values)):
@@ -190,9 +193,9 @@ class NeuralNet():
                 # TODO: Calc Y total
                 yp = [val * weights[k] for k,val in enumerate(Normalized_list)]
                 y_out_total = (np.sum(yp))
-                print(i)
-                print(self.date_list[i])
-                print(y_out_total)
+                #print(i)
+                #print(self.date_list[i])
+                #print(y_out_total)
                 # TODO: Calc Y desire
                 close_gate_ref_today = self.close_value[i]
                 open_gate_ref_today = self.open_values[i]
