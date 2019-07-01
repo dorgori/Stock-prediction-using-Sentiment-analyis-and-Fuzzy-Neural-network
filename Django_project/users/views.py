@@ -18,4 +18,7 @@ def register(request):
 def login(request):
     return render(request, 'users/login.html')
 
+def manual(request):
+    return render(request, 'users/manual.html')
+
 
