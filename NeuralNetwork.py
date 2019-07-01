@@ -16,17 +16,17 @@ class NeuralNet():
         self.mode = mode
         self.createMoodList()
         self.createStockLists()
-        for i in range(100):
+        for i in range(1):
             if mode != cp.PREDICT:
-                training_len = int(len(self.open_values) * 0.8)
-                self.training(training_len)
+                training_len = int(len(self.open_values) * 0.7)
+                #self.training(training_len)
                 stock_name = self.StockFile.replace('Stock Values\\', "")
                 stock_name = stock_name[:stock_name.find('-')].lower()
                 self.testing(training_len, stock_name)
                 accuracy = np.sum(self.accurate_list) / len(self.accurate_list)
-                with open(cp.accuracy_file + stock_name + '.csv', 'a+', newline='') as csvFile:
-                    writer = csv.writer(csvFile)
-                    writer.writerow([self.weights[0], self.weights[1], self.weights[2],accuracy])
+                #with open(cp.accuracy_file + stock_name + '.csv', 'a+', newline='') as csvFile:
+                #    writer = csv.writer(csvFile)
+                #    writer.writerow([self.weights[0], self.weights[1], self.weights[2],accuracy])
                 if accuracy > 0.57:
                     print(accuracy)
         #print(time.time()- tic)
@@ -39,11 +39,7 @@ class NeuralNet():
         df = pd.read_csv(moodFile)
         self.joy_values = df['joy']
         self.surprise_value = df['surprise']
-        self.sad_value = df['sadness']
-        self.anger_value = df['anger']
-        self.fear_value = df['fear']
-        self.mood_list = self.joy_values +self.surprise_value
-        #self.mood_list = self.sad_value
+        self.mood_list = self.joy_values
         self.date_list = df['Date']
 
     def calcGausianFunction(self, values_list):
@@ -103,7 +99,7 @@ class NeuralNet():
         self.path = 'Stock Values/'
         if self.mode == cp.PREDICT:
             self.path = '../Stock Values/'
-        self.StockFile = glob.glob(self.path+"*.csv")[1]
+        self.StockFile = glob.glob(self.path+"*.csv")[4]
         print(self.StockFile)
         df = pd.read_csv(self.StockFile)
         self.open_values = df['Open']

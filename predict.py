@@ -21,22 +21,20 @@ class Predict():
         self.prev_day = datetime.datetime.strftime(self.prev_day, '%m/%d/%Y')
         self.date = str(self.date)
         self.predict_updated = self.check_if_date_existed()
+        print("****")
+        print(self.predict_updated)
         self.net = NeuralNetwork.NeuralNet(cp.PREDICT)
         # ***Check if public mood updated***
-        if self.check_if_dates_updated(self.net.date_list) == 0:
-            self.up_to_date = 0
-        else:
+        self.up_to_date = 0
+        if self.check_if_dates_updated(self.net.date_list):
             # ***Check if stock values updated***
-            if self.check_if_dates_updated(self.net.stock_datelist) == 0:
-                self.up_to_date = 0
-            else:
+            if self.check_if_dates_updated(self.net.stock_datelist):
                 self.up_to_date = 1
 
-
-
-
+        print("****")
+        print(self.up_to_date)
         # Check if predict updated
-        if self.predict_updated == 0:
+        if self.predict_updated == 0 and self.up_to_date == 1:
             self.net_predict()
         self.results = self.read_predicts()
 
@@ -85,14 +83,20 @@ class Predict():
             predictFile = glob.glob(PRED_URL + self.symbol + "-predicts.csv")[0]
             df = pd.read_csv(predictFile)
 
-            dates_list = df['Date']
-            dates_list = dates_list.get_values()
-            if self.prev_day in dates_list and self.date in dates_list:
+            date_list = df['Date']
+            prev = date_list[len(date_list) - 2]
+            today = date_list[len(date_list) - 1]
+            prev = datetime.datetime.strftime(datetime.datetime.strptime(prev, '%d/%m/%Y'), '%m/%d/%Y')
+            #today = datetime.datetime.strftime(datetime.datetime.strptime(today, '%d/%m/%Y'), '%m/%d/%Y')
+            print('-----')
+            print(prev)
+            print(today)
+            print('-----')
+            print(self.prev_day)
+            print(self.date)
+            if self.prev_day == prev and self.date == today:
                 return 1
-            if self.prev_day in dates_list and self.date not in dates_list:
-                return 0
-            if self.prev_day not in dates_list and self.date not in dates_list:
-                return 1
+            return 0
         return 1
 
     def read_predicts(self):
@@ -111,7 +115,6 @@ class Predict():
             d_date = datetime.datetime.strftime(d_date, '%m/%d/%Y')
             if self.prev_day == d_date:
                 return 1
-
         return 0
 
 
