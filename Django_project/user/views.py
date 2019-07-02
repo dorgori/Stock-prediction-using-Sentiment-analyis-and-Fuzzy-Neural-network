@@ -51,7 +51,6 @@ def user(request):
         end_date = str(end_date)
 
         updodate = predict.Predict(stock_name).up_to_date
-        print(updodate)
         if updodate == 0:
             plot_exist = False
             return render(request, 'user/user.html', {'max_date': max_date,
