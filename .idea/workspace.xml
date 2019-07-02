@@ -2,22 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="18aa8204-3ac2-4716-9734-d4dcffe65d66" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/Stock-prediction-using-Sentiment-analyis-and-Fuzzy-Neural-network.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Stock-prediction-using-Sentiment-analyis-and-Fuzzy-Neural-network.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Django_project/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/Django_project/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Django_project/static/predicts/AAPL-predicts.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Django_project/static/predicts/AAPL-predicts.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Django_project/static/predicts/AMZN-predicts.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Django_project/static/predicts/AMZN-predicts.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Django_project/static/predicts/NDAQ-predicts.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Django_project/static/predicts/NDAQ-predicts.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Django_project/static/predicts/SCCO-predicts.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Django_project/static/predicts/SCCO-predicts.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Django_project/static/predicts/SNP-predicts.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Django_project/static/predicts/SNP-predicts.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Django_project/user/templates/user/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/Django_project/user/templates/user/home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeuralNetwork.py" beforeDir="false" afterPath="$PROJECT_DIR$/NeuralNetwork.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/net_output/weights/upp_weights_aapl.csv" beforeDir="false" afterPath="$PROJECT_DIR$/net_output/weights/upp_weights_aapl.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/net_output/weights/upp_weights_amzn.csv" beforeDir="false" afterPath="$PROJECT_DIR$/net_output/weights/upp_weights_amzn.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/net_output/weights/upp_weights_ndaq.csv" beforeDir="false" afterPath="$PROJECT_DIR$/net_output/weights/upp_weights_ndaq.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/net_output/weights/upp_weights_scco.csv" beforeDir="false" afterPath="$PROJECT_DIR$/net_output/weights/upp_weights_scco.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/net_output/weights/upp_weights_snp.csv" beforeDir="false" afterPath="$PROJECT_DIR$/net_output/weights/upp_weights_snp.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/predict.py" beforeDir="false" afterPath="$PROJECT_DIR$/predict.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Django_project/user/templates/user/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/Django_project/user/templates/user/base.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -26,37 +13,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Django_project/user/views.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="630">
-              <caret line="77" column="40" selection-start-line="77" selection-start-column="40" selection-end-line="77" selection-end-column="40" />
-              <folding>
-                <element signature="e#0#35#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Django_project/user/templates/user/home.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="97" column="77" lean-forward="true" selection-start-line="97" selection-start-column="77" selection-end-line="97" selection-end-column="77" />
-              <folding>
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#1;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#section#1;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#2;n#section#1;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#section#2;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#section#2;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#2;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -135,14 +92,14 @@
         <option value="$PROJECT_DIR$/StockMinningToCsv.py" />
         <option value="$PROJECT_DIR$/Django_project/Django_project/settings.py" />
         <option value="$PROJECT_DIR$/Django_project/user/urls.py" />
-        <option value="$PROJECT_DIR$/Django_project/user/templates/user/base.html" />
-        <option value="$PROJECT_DIR$/Django_project/Django_project/urls.py" />
-        <option value="$PROJECT_DIR$/Django_project/users/views.py" />
         <option value="$PROJECT_DIR$/Django_project/users/templates/users/manual.html" />
         <option value="$PROJECT_DIR$/Django_project/user/views.py" />
         <option value="$PROJECT_DIR$/predict.py" />
         <option value="$PROJECT_DIR$/NeuralNetwork.py" />
         <option value="$PROJECT_DIR$/Django_project/user/templates/user/home.html" />
+        <option value="$PROJECT_DIR$/Django_project/users/views.py" />
+        <option value="$PROJECT_DIR$/Django_project/Django_project/urls.py" />
+        <option value="$PROJECT_DIR$/Django_project/user/templates/user/base.html" />
       </list>
     </option>
   </component>
@@ -158,7 +115,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -166,60 +122,11 @@
               <item name="Stock-prediction-using-Sentiment-analyis-and-Fuzzy-Neural-network" type="b2602c69:ProjectViewProjectNode" />
               <item name="Stock-prediction-using-Sentiment-analyis-and-Fuzzy-Neural-network" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="Stock-prediction-using-Sentiment-analyis-and-Fuzzy-Neural-network" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Stock-prediction-using-Sentiment-analyis-and-Fuzzy-Neural-network" type="462c0819:PsiDirectoryNode" />
-              <item name="Django_project" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Stock-prediction-using-Sentiment-analyis-and-Fuzzy-Neural-network" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Stock-prediction-using-Sentiment-analyis-and-Fuzzy-Neural-network" type="462c0819:PsiDirectoryNode" />
-              <item name="Django_project" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Stock-prediction-using-Sentiment-analyis-and-Fuzzy-Neural-network" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Stock-prediction-using-Sentiment-analyis-and-Fuzzy-Neural-network" type="462c0819:PsiDirectoryNode" />
-              <item name="Django_project" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="predicts" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Stock-prediction-using-Sentiment-analyis-and-Fuzzy-Neural-network" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Stock-prediction-using-Sentiment-analyis-and-Fuzzy-Neural-network" type="462c0819:PsiDirectoryNode" />
-              <item name="Django_project" type="462c0819:PsiDirectoryNode" />
-              <item name="user" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Stock-prediction-using-Sentiment-analyis-and-Fuzzy-Neural-network" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Stock-prediction-using-Sentiment-analyis-and-Fuzzy-Neural-network" type="462c0819:PsiDirectoryNode" />
-              <item name="Django_project" type="462c0819:PsiDirectoryNode" />
-              <item name="user" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Stock-prediction-using-Sentiment-analyis-and-Fuzzy-Neural-network" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Stock-prediction-using-Sentiment-analyis-and-Fuzzy-Neural-network" type="462c0819:PsiDirectoryNode" />
-              <item name="Django_project" type="462c0819:PsiDirectoryNode" />
-              <item name="user" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="user" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Stock-prediction-using-Sentiment-analyis-and-Fuzzy-Neural-network" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Stock-prediction-using-Sentiment-analyis-and-Fuzzy-Neural-network" type="462c0819:PsiDirectoryNode" />
-              <item name="net_output" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Stock-prediction-using-Sentiment-analyis-and-Fuzzy-Neural-network" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Stock-prediction-using-Sentiment-analyis-and-Fuzzy-Neural-network" type="462c0819:PsiDirectoryNode" />
-              <item name="net_output" type="462c0819:PsiDirectoryNode" />
-              <item name="weights" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -385,7 +292,7 @@
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18303572" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18303572" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -396,7 +303,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32941177" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="8" sideWeight="0.49925596" visible="true" weight="0.3289689" />
+      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.49925596" visible="true" weight="0.3289689" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50074404" side_tool="true" weight="0.3289689" />
       <window_info anchor="bottom" id="Python Console" order="10" weight="0.32941177" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
@@ -406,10 +313,6 @@
     </layout>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Django_project/users/tests.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scratch.py" />
     <entry file="file://$PROJECT_DIR$/as.py" />
     <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37/Lib/site-packages/tensorflow/examples/tutorials/mnist/input_data.py">
       <provider selected="true" editor-type-id="text-editor" />
@@ -431,16 +334,7 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/SOFNN.py" />
-    <entry file="file://$PROJECT_DIR$/TweetsMiningToCsv2.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="48" column="32" selection-start-line="48" selection-start-column="32" selection-end-line="48" selection-end-column="32" />
-          <folding>
-            <element signature="e#26#37#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/TweetsMiningToCsv2.py" />
     <entry file="file://$PROJECT_DIR$/Django_project/users/models.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -457,11 +351,6 @@
         <state relative-caret-position="51">
           <caret line="6" column="28" selection-start-line="6" selection-start-column="28" selection-end-line="6" selection-end-column="28" />
         </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/create_clean_tweets.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1071" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Django_project/user/models.py">
@@ -492,27 +381,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config_params.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" selection-start-line="4" selection-end-line="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$APPLICATION_HOME_DIR$/helpers/typeshed/stdlib/2and3/datetime.pyi">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="128">
           <caret line="242" column="8" selection-start-line="242" selection-start-column="8" selection-end-line="242" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sentiAnalysis.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="141">
-          <caret line="40" column="56" selection-start-line="40" selection-start-column="48" selection-end-line="40" selection-end-column="56" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -538,9 +410,6 @@
     <entry file="file://$PROJECT_DIR$/Django_project/user/tests.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/Django_project/users/admin.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/Django_project/users/forms.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
@@ -558,31 +427,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Django_project/user/templates/user/user.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2516">
-          <caret line="151" column="37" selection-start-line="151" selection-start-column="37" selection-end-line="151" selection-end-column="37" />
-          <folding>
-            <element signature="n#style#0;n#div#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#form#0;n#div#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#form#0;n#div#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#form#0;n#div#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#h6#0;n#div#1;n#form#0;n#div#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#select#0;n#div#1;n#form#0;n#div#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#2;n#form#0;n#div#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#h6#0;n#div#2;n#form#0;n#div#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#div#2;n#form#0;n#div#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#button#0;n#form#0;n#div#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#3;n#form#0;n#div#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Django_project/manage.spec">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/Django_project/manage.spec" />
     <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37/Lib/site-packages/django/__init__.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -603,9 +448,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Django_project/setup.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/Django_project/setup.py" />
     <entry file="file://$PROJECT_DIR$/Django_project/manage.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
@@ -616,30 +459,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/StockMinningToCsv.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="10" column="28" selection-start-line="10" selection-start-column="28" selection-end-line="10" selection-end-column="28" />
-          <folding>
-            <element signature="e#0#10#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Django_project/Django_project/settings.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="164">
           <caret line="20" selection-start-line="20" selection-end-line="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Django_project/Django_project/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="226">
-          <caret line="25" column="52" selection-start-line="25" selection-start-column="52" selection-end-line="25" selection-end-column="52" />
-          <folding>
-            <element signature="e#638#670#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -669,10 +492,54 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/NeuralNetwork.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="28" column="17" selection-start-line="28" selection-start-column="17" selection-end-line="28" selection-end-column="17" />
+          <folding>
+            <element signature="e#2#13#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37/Lib/site-packages/django/contrib/admin/sites.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="536" selection-start-line="536" selection-end-line="536" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Django_project/users/admin.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Django_project/user/templates/user/base.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="229">
-          <caret line="40" column="71" selection-start-line="40" selection-start-column="71" selection-end-line="40" selection-end-column="71" />
+          <caret line="40" column="70" selection-start-line="40" selection-start-column="70" selection-end-line="40" selection-end-column="70" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Django_project/users/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="19" selection-start-line="19" selection-end-line="19" />
+          <folding>
+            <element signature="e#0#45#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Django_project/user/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5">
+          <caret line="100" column="53" lean-forward="true" selection-start-line="100" selection-start-column="53" selection-end-line="100" selection-end-column="53" />
+          <folding>
+            <element signature="e#0#35#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -686,39 +553,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Django_project/users/views.py">
+    <entry file="file://$PROJECT_DIR$/Django_project/Django_project/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-12">
-          <caret line="1" column="35" lean-forward="true" selection-start-line="1" selection-start-column="35" selection-end-line="1" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/NeuralNetwork.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="28" column="17" selection-start-line="28" selection-start-column="17" selection-end-line="28" selection-end-column="17" />
+        <state relative-caret-position="164">
+          <caret line="21" column="16" lean-forward="true" selection-start-line="21" selection-start-column="10" selection-end-line="21" selection-end-column="16" />
           <folding>
-            <element signature="e#2#13#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/predict.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="55" column="34" lean-forward="true" selection-start-line="55" selection-start-column="34" selection-end-line="55" selection-end-column="34" />
-          <folding>
-            <element signature="e#0#20#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Django_project/user/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="630">
-          <caret line="77" column="40" selection-start-line="77" selection-start-column="40" selection-end-line="77" selection-end-column="40" />
-          <folding>
-            <element signature="e#0#35#0" expanded="true" />
+            <element signature="e#638#670#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -726,7 +566,7 @@
     <entry file="file://$PROJECT_DIR$/Django_project/user/templates/user/home.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
-          <caret line="97" column="77" lean-forward="true" selection-start-line="97" selection-start-column="77" selection-end-line="97" selection-end-column="77" />
+          <caret line="97" column="77" selection-start-line="97" selection-start-column="77" selection-end-line="97" selection-end-column="77" />
           <folding>
             <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#1;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#section#1;n#!!top" expanded="true" />
@@ -734,6 +574,73 @@
             <element signature="n#style#0;n#section#2;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#section#2;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#2;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Django_project/user/templates/user/user.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="569">
+          <caret line="151" column="37" selection-start-line="151" selection-start-column="37" selection-end-line="151" selection-end-column="37" />
+          <folding>
+            <element signature="n#style#0;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#form#0;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#form#0;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#form#0;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#h6#0;n#div#1;n#form#0;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#select#0;n#div#1;n#form#0;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#form#0;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#h6#0;n#div#2;n#form#0;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#div#2;n#form#0;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#0;n#form#0;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#3;n#form#0;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sentiAnalysis.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="40" lean-forward="true" selection-start-line="40" selection-end-line="40" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/create_clean_tweets.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TweetsMiningToCsv.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1032" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config_params.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" selection-start-line="4" selection-end-line="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/StockMinningToCsv.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="17" column="7" lean-forward="true" selection-start-line="17" selection-start-column="7" selection-end-line="17" selection-end-column="7" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/predict.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-442">
+          <caret line="55" column="34" lean-forward="true" selection-start-line="55" selection-start-column="34" selection-end-line="55" selection-end-column="34" />
+          <folding>
+            <element signature="e#0#20#0" expanded="true" />
           </folding>
         </state>
       </provider>
