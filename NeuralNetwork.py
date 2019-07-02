@@ -4,11 +4,9 @@ import glob
 import pandas as pd
 import numpy as np
 import traceback
-import time,csv
 import datetime, math
 from datetime import timedelta
 import config_params as cp
-import os
 
 class NeuralNet():
     def __init__(self, mode):

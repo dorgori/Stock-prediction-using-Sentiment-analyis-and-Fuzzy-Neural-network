@@ -3,7 +3,6 @@ from datetime import datetime, timedelta
 from django.contrib.auth.decorators import login_required
 from Django_project.settings import PRED_URL, CSV_URL, PREDICT_URL, BASE_PROJ_DIR
 import datetime
-import numpy as np
 import glob
 import pandas as pd
 import sys
@@ -116,7 +115,6 @@ def check_for_file(filename):
     for i in range(5):
         plot_det.append((stock_close_gate[i], dates[i]))
 
-    array = np.array(plot_det)
     return [dates, plot_det]
 
 def read_pred_file(stock_name):
