@@ -4,22 +4,27 @@ import datetime
 from datetime import timedelta
 import os
 import copy
+import pandas as pd
+import config_params as cp
 
 class StockValues:
     def __init__(self):
         self.file_name = '-prices.csv'
         symbol_list = ['SCCO', 'NDAQ', 'SNP', 'AAPL', 'AMZN']
         for symb in symbol_list:
-            self.init_symbol(symb)
+            self.init_symbol_dates(symb)
             self.minning_share()
 
     '''
     choose symbol, since date, until date
     '''
-    def init_symbol(self, symbol):
+    def init_symbol_dates(self, symbol):
         self.symbol = symbol
-        self.since_date = '2019-06-30'
-        self.until_date = '2019-07-01'
+        df = pd.read_csv(cp.stock_file_path)
+        stock_date_list = df['Date']
+        last_update = stock_date_list[len(stock_date_list) - 1]
+        self.since_date = datetime.datetime.strftime(datetime.datetime.strptime(last_update, '%m/%d/%Y'),'%Y-%m-%d')
+        self.until_date = datetime.datetime.strftime(datetime.datetime.today(),'%Y-%m-%d')
 
     def minning_share(self):
         share_data = []

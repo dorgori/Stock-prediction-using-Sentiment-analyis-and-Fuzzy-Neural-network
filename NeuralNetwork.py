@@ -12,7 +12,6 @@ import os
 
 class NeuralNet():
     def __init__(self, mode):
-        #tic = time.time()
         self.mode = mode
         self.createMoodList()
         self.createStockLists()
@@ -29,7 +28,6 @@ class NeuralNet():
                 #    writer.writerow([self.weights[0], self.weights[1], self.weights[2],accuracy])
                 if accuracy > 0.57:
                     print(accuracy)
-        #print(time.time()- tic)
 
     def createMoodList(self):
         self.path = 'Public Mood/' + cp.mood_file_path

@@ -8,16 +8,16 @@ import pandas as pd
 import config_params as cp
 
 # single example
-orenys7_key = '0b80d9da8f4e847bd018ef74e597ad62'
-orenys8_key = '3060c861b25a9959c500910254ea1360'
-another = '74998d9369067234f28e7b23848889cd'
-ghostmaster8_key = '4d70b34b8b07b35eac0c4e16123fc3f2'
-kingdavid_key = 'a0da9e8b9fedb26fae72958acc7997ae'
-dor_key = '9870987cf69ce04962caeeddff67ce03'
-new_key = "3af4af3a50ef82c893724ab248f41e9f"
+# orenys7_key = '0b80d9da8f4e847bd018ef74e597ad62'
+# orenys8_key = '3060c861b25a9959c500910254ea1360'
+# another = '74998d9369067234f28e7b23848889cd'
+# ghostmaster8_key = '4d70b34b8b07b35eac0c4e16123fc3f2'
+# kingdavid_key = 'a0da9e8b9fedb26fae72958acc7997ae'
+# dor_key = '9870987cf69ce04962caeeddff67ce03'
+# new_key = "3af4af3a50ef82c893724ab248f41e9f"
+# dor_key_3 = "cc9da658f99efb5d9f27d76c5f41220a"
+# ron_key = "6dcba912bcc9425a8673fcf86c811efc"
 dor_key_2 = "0dce90fa65466e12c052da780741f6ee"
-dor_key_3 = "cc9da658f99efb5d9f27d76c5f41220a"
-ron_key = "6dcba912bcc9425a8673fcf86c811efc"
 regex = re.compile('[^a-zA-Z ]')
 
 class Sentiment_Analysis():
@@ -25,10 +25,10 @@ class Sentiment_Analysis():
     def __init__(self):
         self.emo = ['anger', 'sadness', 'fear', 'joy', 'surprise']
         today = datetime.date.today()
-        tommorow = str(today + timedelta(days=1))
+        yesterday = str(today - timedelta(1))
         self.initialize_start_date()
         print('Start sentiment analysis: ')
-        while self.start_date != tommorow:
+        while self.start_date != yesterday:
             ret_val = self.classification()
             self.start_date = datetime.datetime.strptime(self.start_date, '%Y-%m-%d')
             self.start_date = self.start_date + timedelta(days=1)
