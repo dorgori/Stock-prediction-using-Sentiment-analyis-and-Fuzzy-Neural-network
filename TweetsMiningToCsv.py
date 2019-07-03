@@ -89,7 +89,7 @@ class TweetToCsv():
         self.until_date = self.addonDays(self.start_date, 1)
 
     def main(self):
-        while(self.addonDays(self.start_date,-1) != self.today_date ):
+        while(self.addonDays(self.start_date,-1) != self.today_date):
             self.writeToCsvPerDay()
             self.start_date = self.addonDays(self.start_date, 1)
             self.until_date = self.addonDays(self.until_date, 1)

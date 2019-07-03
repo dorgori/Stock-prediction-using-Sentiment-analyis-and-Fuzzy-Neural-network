@@ -23,7 +23,9 @@ class StockValues:
         df = pd.read_csv(cp.stock_file_path)
         stock_date_list = df['Date']
         last_update = stock_date_list[len(stock_date_list) - 1]
-        self.since_date = datetime.datetime.strftime(datetime.datetime.strptime(last_update, '%m/%d/%Y'),'%Y-%m-%d')
+        last_update = datetime.datetime.strptime(last_update, '%m/%d/%Y')
+        last_update = last_update + timedelta(days=1)
+        self.since_date = datetime.datetime.strftime(last_update,'%Y-%m-%d')
         self.until_date = datetime.datetime.strftime(datetime.datetime.today(),'%Y-%m-%d')
 
     def minning_share(self):

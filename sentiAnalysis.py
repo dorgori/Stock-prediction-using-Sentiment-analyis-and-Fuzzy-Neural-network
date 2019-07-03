@@ -28,7 +28,7 @@ class Sentiment_Analysis():
         yesterday = str(today - timedelta(1))
         self.initialize_start_date()
         print('Start sentiment analysis: ')
-        while self.start_date != yesterday:
+        while self.start_date != today:
             ret_val = self.classification()
             self.start_date = datetime.datetime.strptime(self.start_date, '%Y-%m-%d')
             self.start_date = self.start_date + timedelta(days=1)
@@ -64,7 +64,6 @@ class Sentiment_Analysis():
                 reader = list(csv.reader(tweetsFile))
             tweetsFile.close()
         except:
-            print("Except no file ")+str(self.start_date)
             return -1
         dailyDictionary = {'Date': '0', 'anger': 0, 'sadness': 0, 'fear': 0, 'joy': 0, 'surprise': 0}
         i=0
@@ -121,7 +120,7 @@ class Sentiment_Analysis():
         df = pd.read_csv('Public Mood/' + cp.mood_file_path + '.csv')
         dates = df['Date']
         start_date = dates[len(dates) - 1]
-        start_date = datetime.datetime.strptime(start_date, '%m/%d/%Y')
+        start_date = datetime.datetime.strptime(start_date, '%m/%d/%Y') + timedelta(days=1)
         start_date = datetime.datetime.strftime(start_date, '%Y-%m-%d')
         self.start_date = start_date
 
