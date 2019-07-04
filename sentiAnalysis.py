@@ -28,7 +28,7 @@ class Sentiment_Analysis():
         yesterday = str(today - timedelta(1))
         self.initialize_start_date()
         print('Start sentiment analysis: ')
-        while self.start_date != today:
+        while self.start_date < yesterday:
             ret_val = self.classification()
             self.start_date = datetime.datetime.strptime(self.start_date, '%Y-%m-%d')
             self.start_date = self.start_date + timedelta(days=1)
