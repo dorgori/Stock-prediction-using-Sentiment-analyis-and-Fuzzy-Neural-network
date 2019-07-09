@@ -111,6 +111,8 @@ class Predict():
 
     def check_if_dates_updated(self, datelist):
         for _date in datelist.get_values():
+            temp = str(_date)
+            print(temp)
             d_date = datetime.datetime.strptime(_date, '%m/%d/%Y')
             d_date = datetime.datetime.strftime(d_date, '%m/%d/%Y')
             if self.prev_day == d_date:

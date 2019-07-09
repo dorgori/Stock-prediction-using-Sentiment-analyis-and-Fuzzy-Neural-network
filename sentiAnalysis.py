@@ -25,19 +25,16 @@ class Sentiment_Analysis():
     def __init__(self):
         self.emo = ['anger', 'sadness', 'fear', 'joy', 'surprise']
         today = datetime.date.today()
-        yesterday = str(today - timedelta(1))
         self.initialize_start_date()
         print('Start sentiment analysis: ')
-        while self.start_date < yesterday:
+        while self.start_date < today:
             ret_val = self.classification()
-            self.start_date = datetime.datetime.strptime(self.start_date, '%Y-%m-%d')
             self.start_date = self.start_date + timedelta(days=1)
-            self.start_date = datetime.datetime.strftime(self.start_date, '%Y-%m-%d')
             if ret_val != -1:
                 self.normalized()
                 print(self.daily_p_mood.keys())
                 print(self.daily_p_mood.values())
-            self.saveMoodIntoCSV()
+                self.saveMoodIntoCSV()
 
     def checkForFile(self, country):
         if not os.path.isfile("Public Mood/"+country+".csv"):
@@ -60,19 +57,21 @@ class Sentiment_Analysis():
 
     def classification(self):
         try:
-            with open('Csv By Days/'+ self.start_date + '.csv', newline='',encoding="ISO-8859-1") as tweetsFile:
+            with open('Csv By Days/'+ str(self.start_date) + '.csv', newline='',encoding="ISO-8859-1") as tweetsFile:
                 reader = list(csv.reader(tweetsFile))
             tweetsFile.close()
         except:
+            traceback.print_exc()
             return -1
         dailyDictionary = {'Date': '0', 'anger': 0, 'sadness': 0, 'fear': 0, 'joy': 0, 'surprise': 0}
         i=0
-        # dailyDictionary['Date'] = self.start_date
-        dailyDictionary['Date'] = datetime.datetime.strptime(self.start_date, '%Y-%m-%d').strftime('%m/%d/%y')
+        #dailyDictionary['Date'] = datetime.datetime.strftime(self.start_date,'%m/%d/%Y')
+        dailyDictionary['Date'] = self.start_date.strftime('%m/%d/%Y')
         reader.pop(0)
         marker = 0
         for row in reader:
-            #if i != 10:
+            # if i == 3:
+            #     break
             if marker == 0:
                 marker = 1
                 continue
@@ -92,16 +91,11 @@ class Sentiment_Analysis():
                 print(type(row[1]))
                 print(i)
                 continue
-        #print(str(i)+ ' tweets calculated.')
         self.daily_p_mood = dailyDictionary
         return 0
 
-
     def saveMoodIntoCSV(self):
-        # flag = 0
-        # if not os.path.isfile('Public Mood/' + country + '.csv') == 1:
-        #     flag = 1
-        with open('Public Mood/' + cp.mood_file_path + '.csv', 'a', newline='') as csvFile:
+        with open('Public Mood/' + cp.mood_file_path + '.csv', '+a', newline='') as csvFile:
             writer = csv.writer(csvFile)
             # if flag == 1:
             #     writer.writerow(self.daily_p_mood.keys())
@@ -120,8 +114,7 @@ class Sentiment_Analysis():
         df = pd.read_csv('Public Mood/' + cp.mood_file_path + '.csv')
         dates = df['Date']
         start_date = dates[len(dates) - 1]
-        start_date = datetime.datetime.strptime(start_date, '%m/%d/%Y') + timedelta(days=1)
-        start_date = datetime.datetime.strftime(start_date, '%Y-%m-%d')
+        start_date = datetime.datetime.strptime(start_date, '%m/%d/%Y').date() + timedelta(days=1)
         self.start_date = start_date
 
 if __name__ == "__main__":

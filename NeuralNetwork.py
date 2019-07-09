@@ -162,8 +162,9 @@ class NeuralNet():
 
     def testing(self, start_index, symbol):
         self.accurate_list = []
-        #weights = self.readUpdateWeights(symbol)
-        weights = self.weights
+        weights = self.readUpdateWeights(symbol)
+        print(symbol)
+        #weights = self.weights
 
         try:
             for i in range(start_index, len(self.open_values)):
@@ -186,8 +187,8 @@ class NeuralNet():
                 yp = [val * weights[k] for k,val in enumerate(Normalized_list)]
                 y_out_total = (np.sum(yp))
                 #print(i)
-                #print(self.date_list[i])
-                #print(y_out_total)
+                print(self.date_list[i])
+                print(y_out_total)
                 # TODO: Calc Y desire
                 close_gate_ref_today = self.close_value[i]
                 open_gate_ref_today = self.open_values[i]
