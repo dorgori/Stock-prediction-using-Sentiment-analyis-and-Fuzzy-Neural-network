@@ -2,9 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="18aa8204-3ac2-4716-9734-d4dcffe65d66" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/Stock-prediction-using-Sentiment-analyis-and-Fuzzy-Neural-network.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Stock-prediction-using-Sentiment-analyis-and-Fuzzy-Neural-network.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TweetsMiningToCsv.py" beforeDir="false" afterPath="$PROJECT_DIR$/TweetsMiningToCsv.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Django_project/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/Django_project/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Django_project/static/predicts/AAPL-predicts.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Django_project/static/predicts/AAPL-predicts.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Django_project/static/predicts/AMZN-predicts.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Django_project/static/predicts/AMZN-predicts.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Django_project/static/predicts/NDAQ-predicts.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Django_project/static/predicts/NDAQ-predicts.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Django_project/static/predicts/SCCO-predicts.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Django_project/static/predicts/SCCO-predicts.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Django_project/static/predicts/SNP-predicts.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Django_project/static/predicts/SNP-predicts.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Public Mood/good_analysis_mood.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Public Mood/good_analysis_mood.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Stock Values/AAPL-prices.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Stock Values/AAPL-prices.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Stock Values/AMZN-prices.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Stock Values/AMZN-prices.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Stock Values/NDAQ-prices.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Stock Values/NDAQ-prices.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Stock Values/SCCO-prices.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Stock Values/SCCO-prices.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Stock Values/SNP-prices.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Stock Values/SNP-prices.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/master.py" beforeDir="false" afterPath="$PROJECT_DIR$/master.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sentiAnalysis.py" beforeDir="false" afterPath="$PROJECT_DIR$/sentiAnalysis.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -14,22 +26,22 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/master.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="11" column="19" selection-start-line="11" selection-start-column="19" selection-end-line="11" selection-end-column="19" />
+            <state relative-caret-position="221">
+              <caret line="17" column="31" selection-start-line="17" selection-start-column="31" selection-end-line="17" selection-end-column="31" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/TweetsMiningToCsv.py">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/sentiAnalysis.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="943">
-              <caret line="71" column="76" selection-start-line="71" selection-start-column="76" selection-end-line="71" selection-end-column="76" />
+            <state relative-caret-position="119">
+              <caret line="25" selection-start-line="25" selection-end-line="25" />
               <folding>
-                <element signature="e#26#37#0" expanded="true" />
+                <element signature="e#0#15#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -124,7 +136,6 @@
         <option value="$PROJECT_DIR$/Django_project/user/views.py" />
         <option value="$PROJECT_DIR$/master.py" />
         <option value="$PROJECT_DIR$/sentiAnalysis.py" />
-        <option value="$PROJECT_DIR$/TweetsMiningToCsv.py" />
       </list>
     </option>
   </component>
@@ -157,11 +168,6 @@
               <item name="Stock-prediction-using-Sentiment-analyis-and-Fuzzy-Neural-network" type="462c0819:PsiDirectoryNode" />
               <item name="Django_project" type="462c0819:PsiDirectoryNode" />
               <item name="static" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Stock-prediction-using-Sentiment-analyis-and-Fuzzy-Neural-network" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Stock-prediction-using-Sentiment-analyis-and-Fuzzy-Neural-network" type="462c0819:PsiDirectoryNode" />
-              <item name="Tweets By Days" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -201,7 +207,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.master">
+  <component name="RunManager" selected="Python.sentiAnalysis">
     <configuration name="NeuralNetwork" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Stock-prediction-using-Sentiment-analyis-and-Fuzzy-Neural-network" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -309,9 +315,9 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.master" />
         <item itemvalue="Python.sentiAnalysis" />
         <item itemvalue="Python.StockMinningToCsv" />
+        <item itemvalue="Python.master" />
         <item itemvalue="Python.NeuralNetwork" />
         <item itemvalue="Python.SOFNN" />
       </list>
@@ -347,7 +353,7 @@
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3289689" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.29787233" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.29787233" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.38134205" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -355,7 +361,7 @@
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.49925596" weight="0.3289689" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50074404" side_tool="true" weight="0.3289689" />
-      <window_info anchor="bottom" id="Python Console" order="10" weight="0.3289689" />
+      <window_info anchor="bottom" id="Python Console" order="10" visible="true" weight="0.3289689" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -618,6 +624,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/TweetsMiningToCsv.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="25" lean-forward="true" selection-start-line="6" selection-start-column="25" selection-end-line="6" selection-end-column="25" />
+          <folding>
+            <element signature="e#26#37#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Django_project/user/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
@@ -682,6 +698,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/master.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="17" column="31" selection-start-line="17" selection-start-column="31" selection-end-line="17" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/sentiAnalysis.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
@@ -689,23 +712,6 @@
           <folding>
             <element signature="e#0#15#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TweetsMiningToCsv.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="943">
-          <caret line="71" column="76" selection-start-line="71" selection-start-column="76" selection-end-line="71" selection-end-column="76" />
-          <folding>
-            <element signature="e#26#37#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/master.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="11" column="19" selection-start-line="11" selection-start-column="19" selection-end-line="11" selection-end-column="19" />
         </state>
       </provider>
     </entry>

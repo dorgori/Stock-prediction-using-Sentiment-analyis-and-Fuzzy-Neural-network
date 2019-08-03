@@ -8,11 +8,10 @@ import csv, traceback, os
 from datetime import timedelta
 import datetime
 
-# consumer_key = "fUQPJu7goniR2hfi5R5Klwtrn"  # new Key Data Retriveal
-# consumer_secret = "JpApHOlXEfBxqoGggPZux6kRhLSnLAHhcMRq12K6yiXsUS86qf"  # new Key Data Retriveal
-# access_token = "1003222000523993089-6QBWMQBTNtiVz7NrtcBw3PTigQlpjJ"
-# access_token_secret = "rRrKrD5W7LhmwminPcQHzGJJei5D22xnnvfEJcxONTsEn"
-
+# consumer_key = "8h2gg259CNETqZNR9xq3Z1u3X"  # new Key Data Retriveal
+# consumer_secret = "TVv2tjVSmJJzMRpyWkbW4k3A2lDoSTPbXioRbtmobPPKVHytyP"  # new Key Data Retriveal
+# access_token = "1003222000523993089-nN73BpEgT4T80q8argxts6trocQAva"
+# access_token_secret = "p0DlLZK9AmJjrYq4fBhJBzhMbmytvG2HvAMfUwgQFqUrV"
 
 class TweetToCsv():
     def __init__(self):
@@ -66,10 +65,10 @@ class TweetToCsv():
             f.close()
 
     def init_twitter_api(self):
-        consumer_key = "CXHG6AfLVbC5qJ2wceEmrfEd6"  # new Key Data Retriveal
-        consumer_secret = "CYbtibHsuE6412bkzLHSjhqziC34ObII85UZZKLWCuBbP08UOA"  # new Key Data Retriveal
-        access_token = "194248063-htiKZZclkj50M9fRjePFm5xPPaWXoiZSAGpvbeZ6"
-        access_token_secret = "wp3V6qZ6XnYBFZYHbE1HpvudP9oVOTtxoQ2zWIn6kizpo"
+        consumer_key = "fUQPJu7goniR2hfi5R5Klwtrn"  # new Key Data Retriveal
+        consumer_secret = "JpApHOlXEfBxqoGggPZux6kRhLSnLAHhcMRq12K6yiXsUS86qf"  # new Key Data Retriveal
+        access_token = "1003222000523993089-6QBWMQBTNtiVz7NrtcBw3PTigQlpjJ"
+        access_token_secret = "rRrKrD5W7LhmwminPcQHzGJJei5D22xnnvfEJcxONTsEn"
         auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
         auth.set_access_token(access_token, access_token_secret)
         self.api = tweepy.API(auth, wait_on_rate_limit=True, wait_on_rate_limit_notify=True, compression=True)
